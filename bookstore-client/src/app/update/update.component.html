@@ -1,0 +1,55 @@
+<h3>Update Book</h3>
+
+<formGroup [formGroup]="fg">
+
+    
+        Title :
+        <input type="text" 
+        id="title" 
+        placeholder="Title" 
+        formControlName="title"    
+        [(ngModel)]="book.title"/>
+
+        <div *ngIf="title.invalid && (title.dirty || title.touched)">
+        
+            <div *ngIf="title.errors.required">
+                Title is required.
+            </div>     
+        
+            <div *ngIf="title.errors.asd">
+                Title is required.
+            </div>
+        
+        </div> 
+    <p>
+        Description :
+        <input type="text" 
+        id="description" 
+        placeholder="Description" 
+        formControlName="description"    
+        [(ngModel)]="book.description">  
+    </p>
+
+    <p>
+        Author :
+        <input type="text" 
+        id="author" 
+        placeholder="Author" 
+        formControlName="author"
+        [(ngModel)]="book.author">
+        
+        <div *ngIf="author.invalid && (author.dirty || author.touched)">
+        
+            <div *ngIf="author.errors.required">
+                Author is required.
+            </div>     
+        
+            <div *ngIf="author.errors.asd">
+                Author is required.
+            </div>
+        
+        </div> 
+    
+
+    <button type=”button” (click)="updateBook()">Submit</button>
+</formGroup>

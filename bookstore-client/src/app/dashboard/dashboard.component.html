@@ -1,0 +1,38 @@
+<!-- <p>
+  <button [routerLink]="['/list']">Viea All</button>
+</p> -->
+
+
+<h1>
+Simple CRUD Proj
+</h1>
+
+<button [routerLink]="['/add']">Add</button>
+<br><br>
+
+<p>
+  Search :
+  <input type="text" id="myInput" placeholder="Search for names.." [(ngModel)]="title" >
+  <button (click)="getBook()">Search</button>
+</p>
+
+<table border="1" style="width: 100%">
+  <tr>
+    <th>Id</th>
+    <th>Title</th>
+    <th>Description</th>
+    <th>Author</th>
+    <th>Action</th>
+  </tr>
+  <tr *ngFor="let book of books">
+    
+    <td>{{book.id}}</td>  
+    <td [routerLink]="['/list', book.id]">{{book.title}}</td>
+    <td>{{book.description}}</td>
+    <td>{{book.author}}</td>
+    <td>
+      <button [routerLink]="['/update', book.id]">Edit</button>
+      <button [routerLink]="['/delete', book.id]">Delete</button>
+    </td>
+  </tr>
+</table>
