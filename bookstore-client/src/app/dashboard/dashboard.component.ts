@@ -1,8 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
-import { Books } from '../books'
-import { Title } from '@angular/platform-browser';
-import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-dashboard',
@@ -14,9 +11,7 @@ export class DashboardComponent implements OnInit {
   books: Object;
   title: String;
   
-  constructor(
-    private api: ApiService,
-    ) {}
+  constructor(private api: ApiService) {}
   
   ngOnInit(): void {  
     this.getAllBook();

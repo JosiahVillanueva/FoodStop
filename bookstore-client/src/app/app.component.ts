@@ -16,21 +16,5 @@ export class AppComponent {
 
   title = 'bookstore-client';
 
-  // books = new Array<Books>();
- 
-  constructor( empService:ApiService ) {
- 
-    // empService.getBooks().subscribe(response => 
-    // {     
-    //   this.books = response.map(item => 
-    //   {
-    //     return new Books( 
-    //         item.id,
-    //         item.title,
-    //         item.description,
-    //         item.author
-    //     );
-    //   });
-    // });  
-  }
+  constructor(){}
 }

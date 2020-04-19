@@ -31,9 +31,8 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  public addBook(book: Books[]) {
-    // Note: Yung responseType: Nag patangal sya ng console error
-    // pag tinangal ko yung .pipe nag kakaroon ng problema sa ID nagiging 
+  public addBook(book: Books[]){
+    // Note: Yung responseType: Nag patangal sya ng console error  
 
     const url = 'http://localhost:3000/api/books/post/book';
 
@@ -47,7 +46,7 @@ export class ApiService {
     );
   }
 
-  public updateBook(id: String, book: Books[]) {
+  public updateBook(id: String, book: Books[]){
     const url = 'http://localhost:3000/api/books/put/book/' + id;
 
     return this.http.put(url, book);
