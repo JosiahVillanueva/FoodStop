@@ -13,24 +13,24 @@ export class BookstoreService {
     return this.books;
   }
 
-  getBook(titleOfBook: string){  
+  getBook(titleOfBook: string){
     const book = this.books.filter(a => a.title === titleOfBook);
 
     return book;
   }
 
   addBook(bDto:BookDto){
-    // Not yet satisfied      
-    const b = Object.getOwnPropertyDescriptor(this.books[this.books.length -1], 'id')  
+    // Not yet satisfied
+    const b = Object.getOwnPropertyDescriptor(this.books[this.books.length -1], 'id')
     const c = b.value + 1
 
     bDto.id = c
-    this.books.push(bDto);     
+    this.books.push(bDto);
     
     return bDto;
   } 
 
-  updateBook(id: string, bDto:BookDto){      
+  updateBook(id: string, bDto:BookDto){
     const getBook = this.books.find(a => a.id === parseInt(id));
 
     if(getBook === undefined){
@@ -44,7 +44,7 @@ export class BookstoreService {
     }
   }
   
-  deleteBook(id: string){    
+  deleteBook(id: string){
     const getBook = this.books.find(a => a.id === parseInt(id));
 
     if(getBook === undefined){

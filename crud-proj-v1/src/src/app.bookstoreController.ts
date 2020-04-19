@@ -17,16 +17,16 @@ export class BookDto {
 }
 
 @Controller('books')
-export class BookstoreController {
+export class BookstoreController{
   constructor(private readonly appService: BookstoreService) {}
 
   @Get('get/allBooks')
-  getBooks() {
+  getBooks(){
     return this.appService.getBooks();
   }
 
   @Get('get/book/:title')
-  getBook(@Param('title') title: string) {
+  getBook(@Param('title') title: string){
     return this.appService.getBook(title);
   }
 
@@ -36,7 +36,7 @@ export class BookstoreController {
   }
 
   @Put('put/book/:id')
-  updateBook(@Param('id') id: string, @Body() bDto: BookDto){    
+  updateBook(@Param('id') id: string, @Body() bDto: BookDto){
     return this.appService.updateBook(id, bDto)
   }
 
