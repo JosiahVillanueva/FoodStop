@@ -25,7 +25,6 @@ export class BookstoreService {
     const c = b.value + 1
 
     bDto.id = c
-
     this.books.push(bDto);     
     
     return bDto;

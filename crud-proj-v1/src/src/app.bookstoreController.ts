@@ -3,7 +3,6 @@ import { ApiProperty } from '@nestjs/swagger';
 import { BookstoreService } from './app.bookstoreService';
 
 export class BookDto {
-  
   @ApiProperty()
   id: number;
 
