@@ -19,8 +19,11 @@ export class BookstoreService {
     return book;
   }
 
+  // try to handle exception pag tinangal ko yung isang dto
+
   addBook(bDto:BookDto){
     // Not yet satisfied
+    
     const b = Object.getOwnPropertyDescriptor(this.books[this.books.length -1], 'id')
     const c = b.value + 1
 

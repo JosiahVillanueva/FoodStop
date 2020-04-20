@@ -21,7 +21,7 @@ export class BookstoreController{
   constructor(private readonly appService: BookstoreService) {}
 
   @Get('get/allBooks')
-  getBooks(){
+  getBooks() {
     return this.appService.getBooks();
   }
 
