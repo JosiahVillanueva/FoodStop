@@ -2,6 +2,8 @@ import { Controller, Get, Param, Post, Body, Put, Delete } from '@nestjs/common'
 import { ApiProperty } from '@nestjs/swagger';
 import { BookstoreService } from './app.bookstoreService';
 
+import { BooksEntity } from './books.entity'
+
 export class BookDto {
   @ApiProperty()
   id: number;
@@ -25,23 +27,28 @@ export class BookstoreController{
     return this.appService.getBooks();
   }
 
+  @Get()
+  hello(){
+    
+  }
+
   @Get('get/book/:title')
   getBook(@Param('title') title: string){
     return this.appService.getBook(title);
   }
 
-  @Post('post/book')
-  addBook(@Body() bDto: BookDto){
-    return this.appService.addBook(bDto);
-  }
+  // @Post('post/book')
+  // addBook(@Body() bDto: BooksEntity){
+  //   return this.appService.addBook(bDto);
+  // }
 
-  @Put('put/book/:id')
-  updateBook(@Param('id') id: string, @Body() bDto: BookDto){
-    return this.appService.updateBook(id, bDto)
-  }
+  // @Put('put/book/:id')
+  // updateBook(@Param('id') id: string, @Body() bDto: BookDto){
+  //   return this.appService.updateBook(id, bDto)
+  // }
 
-  @Delete('delete/book/:id')
-  deleteBook(@Param('id') id: string){
-    return this.appService.deleteBook(id)
-  }
+  // @Delete('delete/book/:id')
+  // deleteBook(@Param('id') id: string){
+  //   return this.appService.deleteBook(id)
+  // }
 }
