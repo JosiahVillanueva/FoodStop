@@ -9,7 +9,7 @@ async function bootstrap() {
   app.setGlobalPrefix('api');
 
   const options = new DocumentBuilder()
-  .setTitle('Bookstore')
+  .setTitle('Bookstore123')
   .build();
   const document = SwaggerModule.createDocument(app, options);
   SwaggerModule.setup('api/bookstore', app, document);

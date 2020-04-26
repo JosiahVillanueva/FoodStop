@@ -27,28 +27,24 @@ export class BookstoreController{
     return this.appService.getBooks();
   }
 
-  @Get()
-  hello(){
-    
-  }
-
   @Get('get/book/:title')
   getBook(@Param('title') title: string){
     return this.appService.getBook(title);
   }
 
-  // @Post('post/book')
-  // addBook(@Body() bDto: BooksEntity){
-  //   return this.appService.addBook(bDto);
-  // }
+  @Post('post/book')
+  addBook(@Body() bDto: BooksEntity){
+    return this.appService.addBook(bDto);
+  }
 
-  // @Put('put/book/:id')
+  @Put('put/book/:id')
   // updateBook(@Param('id') id: string, @Body() bDto: BookDto){
-  //   return this.appService.updateBook(id, bDto)
-  // }
+  updateBook(@Param('id') id: string, @Body() bDto: BooksEntity){
+    return this.appService.updateBook(id, bDto)
+  }
 
-  // @Delete('delete/book/:id')
-  // deleteBook(@Param('id') id: string){
-  //   return this.appService.deleteBook(id)
-  // }
+  @Delete('delete/book/:id')
+  deleteBook(@Param('id') id: string){
+    return this.appService.deleteBook(id)
+  }
 }
