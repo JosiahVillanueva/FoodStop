@@ -58,4 +58,9 @@ export class ApiService {
     return this.http.delete(url);
   }
 
+  public login(){
+    const url = "http://localhost:3000/api/auth/login";
+    
+  }
+
 }

@@ -10,5 +10,4 @@ export class Books {
     this.description = description;
     this.author = author;
   }
-
 }

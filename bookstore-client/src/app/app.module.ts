@@ -20,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     ListBooksComponent,
     AddComponent,     
     UpdateComponent, 
-    DeleteComponent, LoginComponent 
+    DeleteComponent, 
+    LoginComponent 
   ],
   imports: [
     BrowserModule,
