@@ -8,12 +8,14 @@ import { ApiService } from '../api.service';
 })
 export class LoginComponent implements OnInit {
 
+  user: any = {};
+
   constructor(private api: ApiService) { }
 
   ngOnInit(): void {
   }
 
   login(){
-    // this.api.addBook(this.book).subscribe(response => {});   
+    this.api.login(this.user).subscribe();
   }
 }

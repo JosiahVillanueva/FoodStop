@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Books } from './books';
-import { Observable, throwError } from 'rxjs';
+import { User } from './user';
+import { throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 
 const httpOptions = {
@@ -10,7 +11,6 @@ const httpOptions = {
   'Authorization': 'my-auth-token'
   })
 };
-// const apiUrl = '/api/bookstore/';
 
 @Injectable({
   providedIn: 'root'
@@ -58,10 +58,10 @@ export class ApiService {
     return this.http.delete(url);
   }
 
-  public login(){
+  public login(user: User[]){
     const url = "http://localhost:3000/api/auth/login";
     
-    // return this.http.post(url);
+    return this.http.post(url, user);
   }
 
 }

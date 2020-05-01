@@ -1,13 +1,15 @@
 <div>
     <label for="username">Username :</label>
-    <input id="username" placeholder="Username">
+    <input id="username" placeholder="Username"
+    [(ngModel)]="user.username">
 </div>
 
 <div>
     <label for="password">Password:</label>
-    <input id="password" placeholder="Passsowrd">
+    <input id="password" placeholder="Passsowrd"
+    [(ngModel)]="user.password">
 </div>
 
 <p>
-    <button type=”button” (click)="login()">Submit</button>
+    <button type=”button” (click)="login()" [routerLink]="['']">Submit</button>
 </p>
