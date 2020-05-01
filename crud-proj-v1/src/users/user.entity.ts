@@ -10,12 +10,11 @@ export class UserEntity {
     @Column()
     username: string;
   
-    @BeforeInsert()
-    hashPassword() {
-    this.password = crypto.createHmac('sha256', this.password).digest('hex');
-    }
+    // @BeforeInsert()
+    // hashPassword() {
+    // this.password = crypto.createHmac('sha256', this.password).digest('hex');
+    // }
 
     @Column()
     password: string;
-
 }

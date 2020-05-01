@@ -3,8 +3,12 @@ import { LocalAuthGuard } from './auth/guards/local-auth.guard';
 import { AuthService } from './auth/auth.service';
 import { JwtAuthGuard } from './auth/guards/jwt-auth.guard';
 import { ApiProperty } from '@nestjs/swagger';
+import { UserEntity } from './users/user.entity'
 
 export class BookDto {
+    @ApiProperty()
+    id: string;
+
     @ApiProperty()
     username: string;
   
@@ -18,8 +22,7 @@ export class AppController {
 
     @UseGuards(LocalAuthGuard)
     @Post('auth/login')
-    // async login(@Request() req) {
-    async login(@Body() bDto: BookDto) {
+    async login(@Body() bDto: UserEntity) {
         return this.authService.login(bDto.username);
     }
 
