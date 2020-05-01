@@ -1,6 +1,4 @@
 import { Injectable, Logger } from '@nestjs/common';
-import { BookDto } from './app.bookstoreController';
-import { BOOKS } from '../mockData/book.mock';
 import e = require('express');
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
@@ -10,10 +8,7 @@ import { BooksEntity } from './books.entity'
 
 @Injectable()
 export class BookstoreService {
-
   constructor(@InjectRepository(BooksEntity) private bookRepository: Repository<BooksEntity>){}
-
-  books = BOOKS;
 
   async getBooks(): Promise<BooksEntity[]>{
     return await this.bookRepository.find();

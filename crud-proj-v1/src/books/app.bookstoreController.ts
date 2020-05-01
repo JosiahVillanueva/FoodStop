@@ -1,22 +1,7 @@
 import { Controller, Get, Param, Post, Body, Put, Delete } from '@nestjs/common';
 import { ApiProperty } from '@nestjs/swagger';
 import { BookstoreService } from './app.bookstoreService';
-
 import { BooksEntity } from './books.entity'
-
-export class BookDto {
-  @ApiProperty()
-  id: number;
-
-  @ApiProperty({required: true})
-  title: string;
-  
-  @ApiProperty({required: true})
-  description: string;
-
-  @ApiProperty({required: true})
-  author: string;
-}
 
 @Controller('books')
 export class BookstoreController{
@@ -38,7 +23,6 @@ export class BookstoreController{
   }
 
   @Put('put/book/:id')
-  // updateBook(@Param('id') id: string, @Body() bDto: BookDto){
   updateBook(@Param('id') id: string, @Body() bDto: BooksEntity){
     return this.appService.updateBook(id, bDto)
   }
