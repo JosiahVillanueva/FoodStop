@@ -10,10 +10,9 @@ export class LoginComponent implements OnInit {
 
   user: any = {};
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService) {}
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   login(){
     this.api.login(this.user).subscribe();

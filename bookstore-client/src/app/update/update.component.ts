@@ -31,13 +31,13 @@ export class UpdateComponent implements OnInit {
   get author() { return this.fg.get('author'); }
 
   updateBook(){
-    if (this.fg.valid) {     
+    if (this.fg.valid) {
       this.id = this.route.snapshot.paramMap.get('id');
       this.api.updateBook(this.id, this.book).subscribe();
       this.routeTwo.navigate([''])
     } else {
       this.fg.get('title').markAsTouched();
-      this.fg.get('author').markAsTouched();    
+      this.fg.get('author').markAsTouched();
     }
   }
 

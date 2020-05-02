@@ -3,6 +3,9 @@ import { ApiService } from '../api.service';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
 import { RouterLink, Router } from '@angular/router';
 
+import { delay } from 'rxjs/operators';
+import { of } from 'rxjs';
+
 @Component({
   selector: 'app-add',
   templateUrl: './add.component.html',
@@ -30,13 +33,24 @@ export class AddComponent implements OnInit {
   get author() { return this.fg.get('author'); }
 
   submitBook(){
-    if (this.fg.valid) {    
-      this.api.addBook(this.book).subscribe(response => {}); 
-      this.route.navigate([''])
+    //switch map for race condition
+    if (this.fg.valid) {
+
+      // this.api.addBook(this.book).subscribe(response => {})
+    
+    of(this.api.addBook(this.book).subscribe(response => {})).pipe(delay(5000));
+    console.log("b")
+
+    this.route.navigate([''])
     } else {
+      console.log("invalid")
       this.fg.get('title').markAsTouched();
       this.fg.get('author').markAsTouched();    
     }
+  }
+
+  simulateHttp(val: any, d:number) {
+    return of('dummy').pipe(delay(5000));
   }
 
 }

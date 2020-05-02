@@ -18,15 +18,13 @@ export class ListBooksComponent implements OnInit {
     private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    console.log("asd " + this.title)
-
     this.getBook(this.title);
   }
 
-  getBook(title:String){  
+  getBook(title:String){
     this.title = this.route.snapshot.paramMap.get('title');
 
-    this.api.getBook(this.title).subscribe(response => {     
+    this.api.getBook(this.title).subscribe(response => {
       this.books = response;
     }); 
   }

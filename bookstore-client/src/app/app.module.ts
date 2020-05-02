@@ -18,7 +18,7 @@ import { LoginComponent } from './login/login.component';
     AppComponent,
     DashboardComponent,
     ListBooksComponent,
-    AddComponent,     
+    AddComponent,
     UpdateComponent, 
     DeleteComponent, 
     LoginComponent 

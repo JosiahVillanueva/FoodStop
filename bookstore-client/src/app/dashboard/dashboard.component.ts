@@ -17,13 +17,13 @@ export class DashboardComponent implements OnInit {
     this.getAllBook();
   }
 
-  getAllBook(){ 
-    this.api.getBooks().subscribe(response => {     
+  getAllBook(){
+    this.api.getBooks().subscribe(response => {
       this.books = response;
     }); 
   }
 
-  getBook(){  
+  getBook(){
     if (!this.title || !this.title.replace(/\s/g, '').length || this.title.length < 0) {
       //redirect to allBook?
     } else {

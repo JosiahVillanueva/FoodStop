@@ -14,10 +14,10 @@ export class BookstoreService {
     return await this.bookRepository.find();
   }
 
-  async getBook(titleOfBook: string): Promise<BooksEntity[]>{
+  async getBook(id: number): Promise<BooksEntity[]>{
     return await this.bookRepository.find({
-      select: ["id", "title", "description", "author"],
-      where: [{ "title": titleOfBook }]
+
+      where: [{ "id": id }]
     });
   }
 

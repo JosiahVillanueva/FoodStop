@@ -1,8 +1,6 @@
 <h3>Update Book</h3>
 
 <formGroup [formGroup]="fg">
-
-    
         Title :
         <input type="text" 
         id="title" 
@@ -42,13 +40,13 @@
         
             <div *ngIf="author.errors.required">
                 Author is required.
-            </div>     
+            </div>
         
             <div *ngIf="author.errors.asd">
                 Author is required.
             </div>
         
-        </div> 
+        </div>
     
 
     <button type=”button” (click)="updateBook()">Submit</button>
