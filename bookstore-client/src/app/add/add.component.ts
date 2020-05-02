@@ -12,7 +12,6 @@ import { of } from 'rxjs';
   styleUrls: ['./add.component.css']
 })
 export class AddComponent implements OnInit {
-
   book: any = {};
   fg: FormGroup;
 
@@ -20,9 +19,7 @@ export class AddComponent implements OnInit {
 
   ngOnInit(): void {
     this.fg = new FormGroup({  
-      'title': new FormControl(this.book.title, [
-        Validators.required,           
-      ]),
+      'title': new FormControl(this.book.title, [Validators.required,]),
       'description': new FormControl(),
       'author': new FormControl(this.book.author, Validators.required)
     });
@@ -45,7 +42,7 @@ export class AddComponent implements OnInit {
     } else {
       console.log("invalid")
       this.fg.get('title').markAsTouched();
-      this.fg.get('author').markAsTouched();    
+      this.fg.get('author').markAsTouched();
     }
   }
 

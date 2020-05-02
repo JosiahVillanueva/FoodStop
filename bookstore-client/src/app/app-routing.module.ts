@@ -9,12 +9,12 @@ import { DeleteComponent } from './delete/delete.component';
 import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [
+  { path: 'login', component: LoginComponent},
   { path: '', component: DashboardComponent},
   { path: 'list/:title', component: ListBooksComponent},
   { path: 'add', component: AddComponent},
   { path: 'update/:id', component: UpdateComponent},
   { path: 'delete/:id', component: DeleteComponent},
-  { path: 'login', component: LoginComponent},
 ]; 
 
 @NgModule({

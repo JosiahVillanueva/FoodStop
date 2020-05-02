@@ -1,15 +1,32 @@
-<div>
-    <label for="username">Username :</label>
-    <input id="username" placeholder="Username"
-    [(ngModel)]="user.username">
-</div>
 
-<div>
-    <label for="password">Password:</label>
-    <input id="password" placeholder="Passsowrd"
-    [(ngModel)]="user.password">
-</div>
+<formGroup [formGroup]="fg">
+    <div>
+        <label for="username">Username :</label>
+        <input id="username" placeholder="Username"
+        formControlName="username"
+        [(ngModel)]="user.username">
+    </div>
 
-<p>
-    <button type=”button” (click)="login()" [routerLink]="['']">Submit</button>
-</p>
+    <div *ngIf="username.invalid && (username.dirty || username.touched)">
+        <div *ngIf="username.errors.required">
+            Username is required.
+        </div>
+    </div> 
+
+    <div>
+        <label for="password">Password:</label>
+        <input type="password" placeholder="Passsowrd"
+        formControlName="password"
+        [(ngModel)]="user.password">
+    </div>
+
+    <div *ngIf="password.invalid && (password.dirty || password.touched)">
+        <div *ngIf="password.errors.required">
+            Password is required.
+        </div>
+    </div> 
+
+    <p>
+        <button type=”button” (click)="login()">Submit</button>
+    </p>
+</formGroup>
