@@ -12,6 +12,7 @@ import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [

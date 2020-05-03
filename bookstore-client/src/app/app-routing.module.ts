@@ -7,10 +7,11 @@ import { AddComponent } from './add/add.component';
 import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
-  { path: '', component: DashboardComponent},
+  { path: '', component: DashboardComponent, canActivate: [AuthGuardService]},
   { path: 'list/:title', component: ListBooksComponent},
   { path: 'add', component: AddComponent},
   { path: 'update/:id', component: UpdateComponent},
