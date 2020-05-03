@@ -35,7 +35,7 @@ export class LoginComponent implements OnInit {
     if (this.fg.valid) {
       this.userService.setLogin(true)
       this.api.login(this.user).subscribe();
-      this.route.navigate([''])
+      this.route.navigate(['dashboard'])
 
       return true;
     }else{

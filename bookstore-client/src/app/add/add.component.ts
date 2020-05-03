@@ -38,7 +38,7 @@ export class AddComponent implements OnInit {
     of(this.api.addBook(this.book).subscribe(response => {})).pipe(delay(5000));
     console.log("b")
 
-    this.route.navigate([''])
+    this.route.navigate(['dashboard'])
     } else {
       console.log("invalid")
       this.fg.get('title').markAsTouched();
