@@ -6,7 +6,6 @@ import { LoginComponent } from './login/login.component';
 })
 export class UserService {
   constructor() {}
-
   initial: boolean = false;
 
   setLogin(result: boolean){

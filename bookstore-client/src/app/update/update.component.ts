@@ -34,7 +34,7 @@ export class UpdateComponent implements OnInit {
     if (this.fg.valid) {
       this.id = this.route.snapshot.paramMap.get('id');
       this.api.updateBook(this.id, this.book).subscribe();
-      this.routeTwo.navigate([''])
+      this.routeTwo.navigate(['dashboard'])
     } else {
       this.fg.get('title').markAsTouched();
       this.fg.get('author').markAsTouched();

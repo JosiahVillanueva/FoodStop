@@ -1,0 +1,16 @@
+input[type=text],[type=password] {
+    width: 90%;
+    padding: 5px 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+input[type=button]{
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 100px 100px;
+    text-decoration: none;
+    margin: 10px 2px;
+    cursor: pointer;
+  }
