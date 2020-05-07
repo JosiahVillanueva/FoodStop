@@ -8,14 +8,16 @@ import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
-  { path: 'list/:title', component: ListBooksComponent},
-  { path: 'add', component: AddComponent},
-  { path: 'update/:id', component: UpdateComponent},
-  { path: 'delete/:id', component: DeleteComponent},
+  { path: 'list/:title', component: ListBooksComponent, canActivate: [AuthGuardService]},
+  { path: 'add', component: AddComponent, canActivate: [AuthGuardService]},
+  { path: 'update/:id', component: UpdateComponent, canActivate: [AuthGuardService]},
+  { path: 'delete/:id', component: DeleteComponent, canActivate: [AuthGuardService]},
+  { path: '**', component: ErrorPageComponent}
 ]; 
 
 @NgModule({

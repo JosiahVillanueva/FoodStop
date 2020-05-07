@@ -13,6 +13,7 @@ import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
+import { ErrorPageComponent } from './error-page/error-page.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { AuthGuardService } from './auth-guard.service';
     AddComponent,
     UpdateComponent, 
     DeleteComponent, 
-    LoginComponent 
+    LoginComponent, 
+    ErrorPageComponent 
   ],
   imports: [
     BrowserModule,
