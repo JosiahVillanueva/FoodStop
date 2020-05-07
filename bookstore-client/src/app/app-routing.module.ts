@@ -13,7 +13,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
 const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
-  { path: 'list/:title', component: ListBooksComponent, canActivate: [AuthGuardService]},
+  { path: 'list/:id', component: ListBooksComponent, canActivate: [AuthGuardService]},
   { path: 'add', component: AddComponent, canActivate: [AuthGuardService]},
   { path: 'update/:id', component: UpdateComponent, canActivate: [AuthGuardService]},
   { path: 'delete/:id', component: DeleteComponent, canActivate: [AuthGuardService]},

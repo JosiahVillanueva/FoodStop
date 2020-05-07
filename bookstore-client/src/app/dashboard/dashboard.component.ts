@@ -7,7 +7,6 @@ import { ApiService } from '../api.service';
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
-
   books: Object;
   title: String;
   

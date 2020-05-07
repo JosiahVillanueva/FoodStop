@@ -1,5 +1,4 @@
 import { Controller, Get, Param, Post, Body, Put, Delete } from '@nestjs/common';
-import { ApiProperty } from '@nestjs/swagger';
 import { BookstoreService } from './app.bookstoreService';
 import { BooksEntity } from './books.entity'
 
@@ -13,22 +12,22 @@ export class BookstoreController{
   }
 
   @Get('get/book/:id')
-  getBook(@Param('id') id: number){
+  getBook(@Param('id') id: number) {
     return this.appService.getBook(id);
   }
 
   @Post('post/book')
-  addBook(@Body() bDto: BooksEntity){
+  addBook(@Body() bDto: BooksEntity) {
     return this.appService.addBook(bDto);
   }
 
   @Put('put/book/:id')
-  updateBook(@Param('id') id: string, @Body() bDto: BooksEntity){
+  updateBook(@Param('id') id: number, @Body() bDto: BooksEntity) {
     return this.appService.updateBook(id, bDto)
   }
 
   @Delete('delete/book/:id')
-  deleteBook(@Param('id') id: string){
+  deleteBook(@Param('id') id: number) {
     return this.appService.deleteBook(id)
   }
 }

@@ -18,7 +18,7 @@ export class AddComponent implements OnInit {
   constructor(private api: ApiService, private route: Router) {}
 
   ngOnInit(): void {
-    this.fg = new FormGroup({  
+    this.fg = new FormGroup({
       'title': new FormControl(this.book.title, [Validators.required,]),
       'description': new FormControl(),
       'author': new FormControl(this.book.author, Validators.required)
@@ -29,25 +29,18 @@ export class AddComponent implements OnInit {
   get description() { return this.fg.get('description'); }
   get author() { return this.fg.get('author'); }
 
-  submitBook(){
+  submitBook() {
     //switch map for race condition
     if (this.fg.valid) {
 
       // this.api.addBook(this.book).subscribe(response => {})
     
     of(this.api.addBook(this.book).subscribe(response => {})).pipe(delay(5000));
-    console.log("b")
 
     this.route.navigate(['dashboard'])
     } else {
-      console.log("invalid")
       this.fg.get('title').markAsTouched();
       this.fg.get('author').markAsTouched();
     }
   }
-
-  simulateHttp(val: any, d:number) {
-    return of('dummy').pipe(delay(5000));
-  }
-
 }

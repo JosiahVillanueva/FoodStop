@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private api: ApiService, 
     private route: Router, 
     private userService: UserService
-    ) {}
+  ) {}
 
   ngOnInit(): void {
     this.fg = new FormGroup({
@@ -38,7 +38,7 @@ export class LoginComponent implements OnInit {
       this.route.navigate(['dashboard'])
 
       return true;
-    }else{
+    } else {
       this.fg.get('username').markAsTouched();
       this.fg.get('password').markAsTouched();
 

@@ -8,7 +8,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrls: ['./delete.component.css']
 })
 export class DeleteComponent implements OnInit {
-
   id: String;
 
   constructor(private api: ApiService, private route: ActivatedRoute) { }

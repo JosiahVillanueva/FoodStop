@@ -16,22 +16,22 @@ const httpOptions = {
   providedIn: 'root'
 })
 
-export class ApiService {  
+export class ApiService {
   constructor(private http: HttpClient) { }
 
-  public getBooks(){
+  public getBooks() {
     const url = 'http://localhost:3000/api/books/get/allBooks';
 
     return this.http.get(url);
   }
 
-  public getBook(title: String){  
+  public getBook(title: String) {
     const url = 'http://localhost:3000/api/books/get/book/' + title;
 
     return this.http.get(url);
   }
 
-  public addBook(book: Books[]){
+  public addBook(book: Books[]) {
     // Note: Yung responseType: Nag patangal sya ng console error  
 
     const url = 'http://localhost:3000/api/books/post/book';
@@ -46,22 +46,21 @@ export class ApiService {
     );
   }
 
-  public updateBook(id: String, book: Books[]){
+  public updateBook(id: String, book: Books[]) {
     const url = 'http://localhost:3000/api/books/put/book/' + id;
 
     return this.http.put(url, book);
   }
 
-  public deleteBook(title: String){
+  public deleteBook(title: String) {
     const url = 'http://localhost:3000/api/books/delete/book/' + title;
 
     return this.http.delete(url);
   }
 
-  public login(user: User[]){
+  public login(user: User[]) {
     const url = "http://localhost:3000/api/auth/login";
     
     return this.http.post(url, user);
   }
-
 }

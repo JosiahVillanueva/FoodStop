@@ -6,7 +6,7 @@
     <input id="title" placeholder="Title"
         formControlName="title"
         [(ngModel)]="book.title"
-        >
+    >
 
     <div *ngIf="title.invalid && (title.dirty || title.touched)">
         <div *ngIf="title.errors.required">

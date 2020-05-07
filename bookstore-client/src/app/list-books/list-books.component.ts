@@ -9,22 +9,21 @@ import { Books } from '../books';
   styleUrls: ['./list-books.component.css']
 })
 export class ListBooksComponent implements OnInit {
-
   books: Object;
-  title: String;
+  id: String;
 
   constructor(
     private api: ApiService,
     private route: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getBook(this.title);
+    this.getBook(this.id);
   }
 
   getBook(title:String){
-    this.title = this.route.snapshot.paramMap.get('title');
+    this.id = this.route.snapshot.paramMap.get('id');
 
-    this.api.getBook(this.title).subscribe(response => {
+    this.api.getBook(this.id).subscribe(response => {
       this.books = response;
     }); 
   }

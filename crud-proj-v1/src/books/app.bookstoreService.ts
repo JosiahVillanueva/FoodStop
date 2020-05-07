@@ -16,7 +16,6 @@ export class BookstoreService {
 
   async getBook(id: number): Promise<BooksEntity[]>{
     return await this.bookRepository.find({
-
       where: [{ "id": id }]
     });
   }
@@ -25,11 +24,11 @@ export class BookstoreService {
     this.bookRepository.save(booksEntity)
   }
 
-  async updateBook(id: string, booksEntity: BooksEntity) {
+  async updateBook(id: number, booksEntity: BooksEntity) {
     return await this.bookRepository.update(id, booksEntity)
   }
 
-  async deleteBook(id: string) {
+  async deleteBook(id: number) {
     this.bookRepository.delete(id);
   }
 }

@@ -1,8 +1,3 @@
-<!-- <p>
-  <button [routerLink]="['/list']">Viea All</button>
-</p> -->
-
-
 <h1>
 Simple CRUD Proj
 </h1>
@@ -26,7 +21,7 @@ Simple CRUD Proj
   </tr>
   <tr *ngFor="let book of books">
     
-    <td>{{book.id}}</td>  
+    <td>{{book.id}}</td>
     <td [routerLink]="['/list', book.id]">{{book.title}}</td>
     <td>{{book.description}}</td>
     <td>{{book.author}}</td>
