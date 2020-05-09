@@ -12,6 +12,7 @@ import { UpdateComponent } from './update/update.component';
 import { DeleteComponent } from './delete/delete.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,7 @@ import { ErrorPageComponent } from './error-page/error-page.component';
     UpdateComponent, 
     DeleteComponent, 
     LoginComponent, 
-    ErrorPageComponent 
+    ErrorPageComponent, HomeComponent 
   ],
   imports: [
     BrowserModule,

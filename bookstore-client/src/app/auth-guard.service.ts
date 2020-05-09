@@ -14,7 +14,7 @@ export class AuthGuardService implements CanActivate {
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): boolean {
     if (this.userService.isLoggedIn()) {
       return true;
-    }else{
+    } else {
       window.alert("You don't have permission to view this page");
       this.router.navigate(['login'])
 

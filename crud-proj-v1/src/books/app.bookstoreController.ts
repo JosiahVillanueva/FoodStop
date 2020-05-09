@@ -12,7 +12,7 @@ export class BookstoreController{
   }
 
   @Get('get/book/:id')
-  getBook(@Param('id') id: number) {
+  getBook(@Param('id') id: string) {
     return this.appService.getBook(id);
   }
 

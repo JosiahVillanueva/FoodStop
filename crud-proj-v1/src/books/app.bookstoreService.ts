@@ -14,9 +14,9 @@ export class BookstoreService {
     return await this.bookRepository.find();
   }
 
-  async getBook(id: number): Promise<BooksEntity[]>{
+  async getBook(id: string): Promise<BooksEntity[]>{
     return await this.bookRepository.find({
-      where: [{ "id": id }]
+      where: [{ "title": id }]
     });
   }
 

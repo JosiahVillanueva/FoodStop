@@ -9,8 +9,10 @@ import { DeleteComponent } from './delete/delete.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
+import { HomeComponent } from './home/home.component';
 
 const routes: Routes = [
+  { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent},
   { path: 'dashboard', component: DashboardComponent, canActivate: [AuthGuardService]},
   { path: 'list/:id', component: ListBooksComponent, canActivate: [AuthGuardService]},
