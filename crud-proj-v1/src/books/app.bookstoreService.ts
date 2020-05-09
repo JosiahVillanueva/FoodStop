@@ -1,7 +1,7 @@
 import { Injectable, Logger } from '@nestjs/common';
 import e = require('express');
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { Repository, getConnection, Entity } from 'typeorm';
 import { BooksEntity } from './books.entity'
 
 // Node JS > Nest JS (Swagger UI)
@@ -21,7 +21,13 @@ export class BookstoreService {
   }
 
   async addBook(booksEntity: BooksEntity) {
-    this.bookRepository.save(booksEntity)
+    let book = await this.checkDuplicate(booksEntity.title);
+    
+    if(book === true){
+      console.log("FAILED TO ADD BOOK, HAS DUPLICATE")
+    } else {
+      this.bookRepository.save(booksEntity)
+    }
   }
 
   async updateBook(id: number, booksEntity: BooksEntity) {
@@ -30,5 +36,15 @@ export class BookstoreService {
 
   async deleteBook(id: number) {
     this.bookRepository.delete(id);
+  }
+
+  public async checkDuplicate(value: string): Promise<boolean> {
+    const result = await getConnection()
+        .getRepository(BooksEntity)
+        .createQueryBuilder('bookstore')
+        .where('bookstore.title= :title', { title: value})
+        .getMany();
+
+    return result.length >= 1;
   }
 }
