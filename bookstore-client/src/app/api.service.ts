@@ -17,9 +17,9 @@ const httpOptions = {
 })
 
 export class ApiService {
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {}
 
-  public getBooks() {
+  async getBooks() {
     const url = 'http://localhost:3000/api/books/get/allBooks';
 
     return this.http.get(url);
@@ -31,7 +31,7 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  public addBook(book: Books[]) {
+  async addBook(book: Books[]) {
     // Note: Yung responseType: Nag patangal sya ng console error  
 
     const url = 'http://localhost:3000/api/books/post/book';

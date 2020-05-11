@@ -29,13 +29,13 @@ export class AddComponent implements OnInit {
   get description() { return this.fg.get('description'); }
   get author() { return this.fg.get('author'); }
 
-  submitBook() {
+  async submitBook() {
     //switch map for race condition
     if (this.fg.valid) {
 
-      // this.api.addBook(this.book).subscribe(response => {})
+      (await this.api.addBook(this.book)).subscribe(response => {})
     
-    of(this.api.addBook(this.book).subscribe(response => {})).pipe(delay(5000));
+    // of(this.api.addBook(this.book).subscribe(response => {})).pipe(delay(5000));
 
     this.route.navigate(['dashboard'])
     } else {

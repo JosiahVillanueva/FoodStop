@@ -1,4 +1,4 @@
-import { Controller, Get, Param, Post, Body, Put, Delete } from '@nestjs/common';
+import { Controller, Get, Param, Post, Body, Put, Delete, HttpCode, Redirect, Res } from '@nestjs/common';
 import { BookstoreService } from './app.bookstoreService';
 import { BooksEntity } from './books.entity'
 
@@ -7,8 +7,8 @@ export class BookstoreController{
   constructor(private readonly appService: BookstoreService) {}
 
   @Get('get/allBooks')
-  getBooks() {
-    return this.appService.getBooks();
+  async getBooks(): Promise<any[]> {
+    return await this.appService.getBooks();
   }
 
   @Get('get/book/:id')
@@ -17,8 +17,8 @@ export class BookstoreController{
   }
 
   @Post('post/book')
-  addBook(@Body() bDto: BooksEntity) {
-    return this.appService.addBook(bDto);
+  async addBook(@Body() bDto: BooksEntity): Promise<BooksEntity> {
+    return await this.appService.addBook(bDto);
   }
 
   @Put('put/book/:id')
