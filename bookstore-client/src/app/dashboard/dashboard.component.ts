@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
+import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -10,7 +11,7 @@ export class DashboardComponent implements OnInit {
   books: Object;
   title: String;
   
-  constructor(private api: ApiService) {}
+  constructor(private api: ApiService, private userService: UserService) {}
   
   ngOnInit(): void {
     this.getAllBook();
@@ -30,5 +31,9 @@ export class DashboardComponent implements OnInit {
         this.books = response;
       }); 
     }
+  }
+
+  logout() {
+    this.userService.setLogin(false);
   }
 }
