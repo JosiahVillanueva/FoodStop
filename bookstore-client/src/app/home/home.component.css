@@ -205,17 +205,69 @@
   margin-right: 150px;
 }
 
-.subMainContentFirstImage {
-    display: flex;
-    border-radius: 15px;
-    width: 100%;
-    height: 170px;
+.img-discover {
+  border-radius: 15px;
+  width: 100%;
+  height: 170px;
 }
 
-.subMainContentFirstTitle {
-    font-family: 'Montserrat', sans-serif;
-    text-align: center;
-    padding-top: 20px;
-    font-weight: 700;
-    font-size: 24px;
+.text-title {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: 700;
+  font-size: 24px;
+}
+
+.trending-container {
+  position: relative;
+  border-radius: 15px;
+  border: 3px solid gray;
+  width: 65%;
+  height: 200px;
+  margin-top: 100px;
+  margin-left: 305px;
+  margin-bottom: 15px;
+}
+
+.img-trending {
+  position: absolute;
+  border-radius: 15px;
+  width: 20%;
+  height: 170px;
+  margin-top: 12px;
+  margin-bottom: 12px;
+  margin-left: 10px;
+}
+
+.text-trending-title {
+  position: absolute;
+  margin-left: 265px;
+  margin-top: 20px;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.trending-rating {
+  position: absolute;
+  margin-left: 865px;
+  margin-top: 20px;
+}
+
+.trending-tags {
+  position: absolute;
+  margin-left: 265px;
+  margin-top: 70px;
+}
+
+.trending-price {
+  position: absolute;
+  margin-left: 265px;
+  margin-top: 120px;
+}
+
+.trending-location {
+  position: absolute;
+  margin-left: 265px;
+  margin-top: 95px;
 }
