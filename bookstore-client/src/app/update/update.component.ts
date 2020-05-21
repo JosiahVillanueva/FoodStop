@@ -14,7 +14,7 @@ export class UpdateComponent implements OnInit {
   id: String;
   fg: FormGroup;
 
-  constructor(private api: ApiService, private route: ActivatedRoute, private routeTwo: Router) {}
+  constructor(private apiService: ApiService, private activatedRoute: ActivatedRoute, private router: Router) {}
 
   ngOnInit(): void {
     this.fg = new FormGroup({  
@@ -32,9 +32,9 @@ export class UpdateComponent implements OnInit {
 
   updateBook(){
     if (this.fg.valid) {
-      this.id = this.route.snapshot.paramMap.get('id');
-      this.api.updateBook(this.id, this.book).subscribe();
-      this.routeTwo.navigate(['dashboard'])
+      this.id = this.activatedRoute.snapshot.paramMap.get('id');
+      this.apiService.updateBook(this.id, this.book).subscribe();
+      this.router.navigate(['dashboard']);
     } else {
       this.fg.get('title').markAsTouched();
       this.fg.get('author').markAsTouched();

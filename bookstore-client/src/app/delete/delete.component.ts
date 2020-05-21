@@ -10,12 +10,12 @@ import { ActivatedRoute } from '@angular/router';
 export class DeleteComponent implements OnInit {
   id: String;
 
-  constructor(private api: ApiService, private route: ActivatedRoute) { }
+  constructor(private apiService: ApiService, private activeRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.paramMap.get('id');
+    this.id = this.activeRoute.snapshot.paramMap.get('id');
 
-    this.api.deleteBook(this.id).subscribe() 
+    this.apiService.deleteBook(this.id).subscribe() 
   }
 
 }

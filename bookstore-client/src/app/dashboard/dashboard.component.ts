@@ -11,14 +11,14 @@ export class DashboardComponent implements OnInit {
   books: Object;
   title: String;
   
-  constructor(private api: ApiService, private userService: UserService) {}
+  constructor(private apiService: ApiService, private userService: UserService) {}
   
   ngOnInit(): void {
     this.getAllBook();
   }
 
   async getAllBook() {
-    (await this.api.getBooks()).subscribe(response => {
+    (await this.apiService.getBooks()).subscribe(response => {
       this.books = response;
     }); 
   }
@@ -27,7 +27,7 @@ export class DashboardComponent implements OnInit {
     if (!this.title || !this.title.replace(/\s/g, '').length || this.title.length < 0) {
       //redirect to allBook?
     } else {
-      this.api.getBook(this.title).subscribe(response => {
+      this.apiService.getBook(this.title).subscribe(response => {
         this.books = response;
       }); 
     }

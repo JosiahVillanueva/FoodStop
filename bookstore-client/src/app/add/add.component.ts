@@ -1,10 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ApiService } from '../api.service';
 import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from '@angular/forms';
-import { RouterLink, Router } from '@angular/router';
-
-import { delay } from 'rxjs/operators';
-import { of } from 'rxjs';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-add',
@@ -15,7 +12,7 @@ export class AddComponent implements OnInit {
   book: any = {};
   fg: FormGroup;
 
-  constructor(private api: ApiService, private route: Router) {}
+  constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
     this.fg = new FormGroup({
@@ -32,12 +29,10 @@ export class AddComponent implements OnInit {
   async submitBook() {
     //switch map for race condition
     if (this.fg.valid) {
-
-      (await this.api.addBook(this.book)).subscribe(response => {})
+      (await this.apiService.addBook(this.book)).subscribe(response => {});
     
     // of(this.api.addBook(this.book).subscribe(response => {})).pipe(delay(5000));
-
-    this.route.navigate(['dashboard'])
+      this.router.navigate(['dashboard']);
     } else {
       this.fg.get('title').markAsTouched();
       this.fg.get('author').markAsTouched();

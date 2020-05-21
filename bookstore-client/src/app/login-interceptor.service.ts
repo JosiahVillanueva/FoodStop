@@ -25,7 +25,6 @@ export class LoginInterceptorService implements HttpInterceptor {
           this.userService.setLogin(false)
           this._router.navigate(['login'])
           console.log("Unauthorized")
-
         }
       }
     });
