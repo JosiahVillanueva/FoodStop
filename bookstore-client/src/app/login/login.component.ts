@@ -4,6 +4,9 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthGuardService } from '../auth-guard.service';
 import { UserService } from '../user.service';
+import { HttpErrorResponse, HttpRequest, HttpHandler, HttpEvent } from '@angular/common/http';
+import { Observable, of, throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 
 @Component({
   selector: 'app-login',
@@ -33,9 +36,14 @@ export class LoginComponent implements OnInit {
 
   login(): boolean {
     if (this.fg.valid) {
-      this.userService.setLogin(true)
+      /* 
+        Check muna kung ano nireturn nung endpoint if nag return ng token 
+        tska ipasok yung setLogin(true)
+      */
+
+      // this.userService.setLogin(true)
       this.api.login(this.user).subscribe();
-      this.route.navigate(['dashboard'])
+      // this.route.navigate(['dashboard'])
 
       return true;
     } else {
