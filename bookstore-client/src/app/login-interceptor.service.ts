@@ -15,9 +15,9 @@ export class LoginInterceptorService implements HttpInterceptor {
   intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
     return next.handle(request).do((event: HttpEvent<any>) => {
       if (event instanceof HttpResponse) {
-        this.userService.setLogin(true)
-        this._router.navigate(['dashboard'])
-        console.log("authorized")
+        // this.userService.setLogin(true);
+        // this._router.navigate(['dashboard']);
+        // console.log("authorized");
       }
     }, (err: any) => {
       if (err instanceof HttpErrorResponse) {

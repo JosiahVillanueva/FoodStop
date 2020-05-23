@@ -42,5 +42,4 @@ import { LoginInterceptorService } from './login-interceptor.service';
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-multi: true
  

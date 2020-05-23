@@ -7,13 +7,8 @@ import { BooksEntity } from './books.entity'
 // Node JS > Nest JS (Swagger UI)
 
 @Injectable()
-export class BookstoreService implements NestMiddleware{
+export class BookstoreService {
   constructor(@InjectRepository(BooksEntity) private bookRepository: Repository<BooksEntity>){}
-
-  use(_req: Request, res: Response, next: Function) {
-    console.log('Request...');
-    next();
-  }
 
   async getBooks(): Promise<BooksEntity[]> {
     console.log("getbook")

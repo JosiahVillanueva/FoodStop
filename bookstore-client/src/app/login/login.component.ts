@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
@@ -13,7 +14,7 @@ export class LoginComponent implements OnInit {
   user: any = {};
   fg: FormGroup;
 
-  constructor(private apiService: ApiService, private userService: UserService) {}
+  constructor(private apiService: ApiService, private userService: UserService, private _router: Router) {}
 
   ngOnInit(): void {
     this.fg = new FormGroup({
@@ -30,6 +31,8 @@ export class LoginComponent implements OnInit {
   login() {
     if (this.fg.valid) {
       this.apiService.login(this.user).subscribe();
+      this.userService.setLogin(true);
+      this._router.navigate(['dashboard']);
     } else {
       this.fg.get('username').markAsTouched();
       this.fg.get('password').markAsTouched();
