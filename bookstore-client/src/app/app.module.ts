@@ -4,12 +4,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { ListBooksComponent } from './list-books/list-books.component';
-import { AddComponent } from './add/add.component';
+import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
+import { BookDetailsComponent } from './book-details/book-details.component';
+import { BookAddComponent } from './book-add/book-add.component';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
-import { UpdateComponent } from './update/update.component';
-import { DeleteComponent } from './delete/delete.component';
+import { BookUpdateComponent } from './book-update/book-update.component';
+import { BookDeleteComponent } from './book-delete/book-delete.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeComponent } from './home/home.component';
@@ -18,13 +18,14 @@ import { LoginInterceptorService } from './login-interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
-    DashboardComponent,
-    ListBooksComponent,
-    AddComponent,
-    UpdateComponent, 
-    DeleteComponent, 
+    BookDashboardComponent,
+    BookDetailsComponent,
+    BookAddComponent,
+    BookUpdateComponent, 
+    BookDeleteComponent, 
     LoginComponent, 
-    ErrorPageComponent, HomeComponent 
+    ErrorPageComponent, 
+    HomeComponent, 
   ],
   imports: [
     BrowserModule,

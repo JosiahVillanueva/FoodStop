@@ -5,10 +5,10 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-update',
-  templateUrl: './update.component.html',
-  styleUrls: ['./update.component.css']
+  templateUrl: './book-update.component.html',
+  styleUrls: ['./book-update.component.css']
 })
-export class UpdateComponent implements OnInit {
+export class BookUpdateComponent implements OnInit {
 
   book: any = {};
   id: String;
@@ -19,7 +19,7 @@ export class UpdateComponent implements OnInit {
   ngOnInit(): void {
     this.fg = new FormGroup({  
       'title': new FormControl(this.book.title, [
-        Validators.required,           
+        Validators.required,
       ]),
       'description': new FormControl(),
       'author': new FormControl(this.book.author, Validators.required)

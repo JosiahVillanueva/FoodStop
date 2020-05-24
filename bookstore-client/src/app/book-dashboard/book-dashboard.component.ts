@@ -4,10 +4,10 @@ import { UserService } from '../user.service';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './dashboard.component.html',
-  styleUrls: ['./dashboard.component.css']
+  templateUrl: './book-dashboard.component.html',
+  styleUrls: ['./book-dashboard.component.css']
 })
-export class DashboardComponent implements OnInit {
+export class BookDashboardComponent implements OnInit {
   books: Object;
   title: String;
   

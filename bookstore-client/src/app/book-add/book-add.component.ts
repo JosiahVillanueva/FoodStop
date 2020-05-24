@@ -4,11 +4,11 @@ import { FormGroup, FormControl, Validators, AbstractControl, ValidatorFn } from
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add',
-  templateUrl: './add.component.html',
-  styleUrls: ['./add.component.css']
+  selector: 'app-book-add',
+  templateUrl: './book-add.component.html',
+  styleUrls: ['./book-add.component.css']
 })
-export class AddComponent implements OnInit {
+export class BookAddComponent implements OnInit {
   book: any = {};
   fg: FormGroup;
 

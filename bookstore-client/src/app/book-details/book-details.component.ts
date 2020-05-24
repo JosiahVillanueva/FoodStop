@@ -4,10 +4,10 @@ import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: 'app-list-books',
-  templateUrl: './list-books.component.html',
-  styleUrls: ['./list-books.component.css']
+  templateUrl: './book-details.component.html',
+  styleUrls: ['./book-details.component.css']
 })
-export class ListBooksComponent implements OnInit {
+export class BookDetailsComponent implements OnInit {
   books: Object;
   id: String;
 
