@@ -11,6 +11,8 @@ import { Router } from '@angular/router';
 export class BookAddComponent implements OnInit {
   book: any = {};
   fg: FormGroup;
+  
+  countries: any;
 
   constructor(private apiService: ApiService, private router: Router) {}
 
@@ -27,12 +29,14 @@ export class BookAddComponent implements OnInit {
   get author() { return this.fg.get('author'); }
 
   async submitBook() {
-    //switch map for race condition
     if (this.fg.valid) {
-      (await this.apiService.addBook(this.book)).subscribe(response => {});
-    
-    // of(this.api.addBook(this.book).subscribe(response => {})).pipe(delay(5000));
-      this.router.navigate(['dashboard']);
+      (await this.apiService.addBook(this.book)).subscribe(res => { 
+        // did not specify status code since may err naman 
+        this.router.navigate(['dashboard']);
+      },
+      err=>{
+        console.log("On Add Status Code Error"+err.status)
+      });
     } else {
       this.fg.get('title').markAsTouched();
       this.fg.get('author').markAsTouched();

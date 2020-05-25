@@ -33,8 +33,13 @@ export class BookUpdateComponent implements OnInit {
   updateBook(){
     if (this.fg.valid) {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
-      this.apiService.updateBook(this.id, this.book).subscribe();
-      this.router.navigate(['dashboard']);
+      this.apiService.updateBook(this.id, this.book).subscribe(res => { 
+        // did not specify status code since may err naman 
+        this.router.navigate(['dashboard']);
+      },
+      err=>{
+        console.log("On Add Status Code Error"+err.status)
+      });
     } else {
       this.fg.get('title').markAsTouched();
       this.fg.get('author').markAsTouched();

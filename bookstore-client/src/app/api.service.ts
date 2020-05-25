@@ -32,11 +32,9 @@ export class ApiService {
   }
 
   async addBook(book: Books[]) {
-    // Note: Yung responseType: Nag patangal sya ng console error  
-
     const url = 'http://localhost:3000/api/books/post/book';
 
-    return this.http.post(url, book, {responseType: 'text'})
+    return this.http.post(url, book, {observe : 'response'})
     .pipe(
       map((data: any) => {
         return data;
@@ -49,7 +47,13 @@ export class ApiService {
   public updateBook(id: String, book: Books[]) {
     const url = 'http://localhost:3000/api/books/put/book/' + id;
 
-    return this.http.put(url, book);
+    return this.http.put(url, book, {observe : 'response'}).pipe(
+      map((data: any) => {
+        return data;
+      }), catchError( error => {
+        return throwError( 'Something went wrong!' );
+      })
+    );;
   }
 
   public deleteBook(title: String) {
