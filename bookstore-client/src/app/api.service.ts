@@ -19,6 +19,12 @@ const httpOptions = {
 export class ApiService {
   constructor(private http: HttpClient) {}
 
+  public login(user: User[]) {
+    const url = "http://localhost:3000/api/auth/login";
+    
+    return this.http.post(url, user);
+  }
+
   async getBooks() {
     const url = 'http://localhost:3000/api/books/get/allBooks';
 
@@ -62,9 +68,23 @@ export class ApiService {
     return this.http.delete(url);
   }
 
-  public login(user: User[]) {
-    const url = "http://localhost:3000/api/auth/login";
-    
-    return this.http.post(url, user);
+  async getTags() {
+
+  }
+
+  async getTag() {
+
+  }
+
+  async addTag() {
+
+  }
+
+  async updateTag() {
+
+  }
+
+  async deleteTag() {
+
   }
 }
