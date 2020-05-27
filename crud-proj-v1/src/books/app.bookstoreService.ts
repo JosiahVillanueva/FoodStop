@@ -11,9 +11,6 @@ export class BookstoreService {
   constructor(@InjectRepository(BooksEntity) private bookRepository: Repository<BooksEntity>){}
 
   async getBooks(): Promise<BooksEntity[]> {
-    console.log("getbook")
-    console.log("----------")
-    
     return await this.bookRepository.find();
   }
 
