@@ -15,7 +15,7 @@ export class BookDeleteComponent implements OnInit {
   ngOnInit(): void {
     this.id = this.activeRoute.snapshot.paramMap.get('id');
 
-    this.apiService.deleteBook(this.id).subscribe() 
+    this.apiService.deleteBook(this.id).subscribe();
   }
 
 }

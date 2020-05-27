@@ -11,8 +11,6 @@ import { Router } from '@angular/router';
 export class BookAddComponent implements OnInit {
   book: any = {};
   fg: FormGroup;
-  
-  countries: any;
 
   constructor(private apiService: ApiService, private router: Router) {}
 

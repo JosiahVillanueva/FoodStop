@@ -1,0 +1,58 @@
+<h3>Update a Tag</h3>
+
+<formGroup [formGroup]="fg">
+
+    <label for="picture">Picture :</label>
+    <input id="picture" placeholder="picture"
+        formControlName="picture"
+        [(ngModel)]="tag.picture"
+    >
+    <!-- Feel ko tatangalin ko din toh since di naman magigin -->
+    <div *ngIf="picture.invalid && (picture.dirty || picture.touched)">
+        <div *ngIf="picture.errors.required">
+            Picture is required.
+        </div>
+    </div> 
+
+    <div>
+        <label for="tagName">Tag Name :</label>
+        <input type="text" id="tagName"
+            placeholder="Tag Name" 
+            formControlName="tagName" 
+            [(ngModel)]="tag.tagName"
+        >
+    </div>
+
+    <div *ngIf="tagName.invalid && (tagName.dirty || tagName.touched)" class="required">
+        <div *ngIf="tagName.errors.required">
+                Tag Name is required.
+        </div>
+    </div> 
+
+    <label for="tagDescription">Tag Description :</label>
+    <input type="text" 
+        id="tagDescription" 
+        placeholder="Tag Description" 
+        formControlName="tagDescription" 
+        [(ngModel)]="tag.tagDescription"
+    >
+
+    <label for="tagHexColor">Hex Color :</label>
+    <input type="text" 
+        id="tagHexColor" 
+        placeholder="Hex Color" 
+        formControlName="tagHexColor" 
+        [(ngModel)]="tag.tagHexColor"
+    >
+
+    <div *ngIf="tagHexColor.invalid && (tagHexColor.dirty || tagHexColor.touched)" class="required">
+        <div *ngIf="tagHexColor.errors.required">
+                Hex Color is required.
+        </div>
+    </div> 
+
+    <p>
+        <button type=”button” (click)="submitTag()">Submit</button>
+    </p>
+
+</formGroup>

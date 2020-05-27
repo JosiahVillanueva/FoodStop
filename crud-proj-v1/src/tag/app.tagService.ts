@@ -14,12 +14,12 @@ export class TagService {
 
   async getTag(id: string): Promise<TagEntity[]> {
     return await this.tagRepository.find({
-      where: [{ "id": id }, {"tag_name" : id}]
+      where: [{ "id": id }, {"tagName" : id}]
     });
   }
 
   async addTag(tagEntity: TagEntity): Promise<TagEntity> {
-    let tag = await this.duplicate(tagEntity.tag_name)
+    let tag = await this.duplicate(tagEntity.tagName)
 
     if(tag === true){
       console.log("FAILED TO ADD BOOK, HAS DUPLICATE")
@@ -39,7 +39,7 @@ export class TagService {
 
   public async duplicate(value: string): Promise<boolean>{
     const result = await this.tagRepository.find({
-      where: [{ "tag_name": value }, { "tag_hex_color": value }]
+      where: [{ "tagName": value }, { "tagHexColor": value }]
     });
     
     return result.length >= 1;

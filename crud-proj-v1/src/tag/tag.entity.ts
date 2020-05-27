@@ -9,11 +9,11 @@ export class TagEntity {
     picture:string;
 
     @Column()
-    tag_name:string;
+    tagName:string;
 
     @Column() 
-    tag_description:string;
+    tagDescription:string;
 
     @Column() 
-    tag_hex_color:string;
+    tagHexColor:string;
 }

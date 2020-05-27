@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { Books } from './books';
+import { Tag } from './tag';
 import { User } from './user';
 import { throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
@@ -69,22 +70,33 @@ export class ApiService {
   }
 
   async getTags() {
+    const url = 'http://localhost:3000/api/tag/get/allTags';
+
+    return this.http.get(url);
+  }
+
+  async getTag(id: number) {
+    const url = 'http://localhost:3000/api/tag/get/tag/' + id;
+  
+    return this.http.get(url);
+  }
+
+  async addTag(tag: Tag[]) {
+    const url = 'http://localhost:3000/api/tag/post/tag';
+
+    return this.http.post(url, tag);
 
   }
 
-  async getTag() {
-
+  async updateTag(id: string, tag: Tag[]) {
+    const url = 'http://localhost:3000/api/tag/put/tag/' + id;
+    
+    return this.http.put(url, tag);
   }
 
-  async addTag() {
+  async deleteTag(id: string) {
+    const url = 'http://localhost:3000/api/tag/delete/tag/' + id;
 
-  }
-
-  async updateTag() {
-
-  }
-
-  async deleteTag() {
-
+    return this.http.delete(url);
   }
 }
