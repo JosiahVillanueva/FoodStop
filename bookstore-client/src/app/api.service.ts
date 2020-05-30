@@ -99,4 +99,10 @@ export class ApiService {
 
     return this.http.delete(url);
   }
+
+  async register(user: User[]) {
+    const url = 'http://localhost:3000/api/books/post/user';
+
+    return this.http.post(url, user);
+  }
 }

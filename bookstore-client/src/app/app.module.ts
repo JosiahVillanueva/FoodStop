@@ -18,6 +18,7 @@ import { TagDashboardComponent } from './tag-dashboard/tag-dashboard.component';
 import { TagAddComponent } from './tag-add/tag-add.component';
 import { TagUpdateComponent } from './tag-update/tag-update.component';
 import { TagDeleteComponent } from './tag-delete/tag-delete.component';
+import { RegisterComponent } from './register/register.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,12 @@ import { TagDeleteComponent } from './tag-delete/tag-delete.component';
     BookDeleteComponent, 
     LoginComponent, 
     ErrorPageComponent, 
-    HomeComponent, TagDashboardComponent, TagAddComponent, TagUpdateComponent, TagDeleteComponent, 
+    HomeComponent, 
+    TagDashboardComponent, 
+    TagAddComponent, 
+    TagUpdateComponent, 
+    TagDeleteComponent, 
+    RegisterComponent, 
   ],
   imports: [
     BrowserModule,

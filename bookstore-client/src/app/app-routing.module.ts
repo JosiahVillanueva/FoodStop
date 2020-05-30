@@ -14,10 +14,12 @@ import { TagDashboardComponent } from './tag-dashboard/tag-dashboard.component';
 import { TagAddComponent } from './tag-add/tag-add.component';
 import { TagUpdateComponent } from './tag-update/tag-update.component';
 import { TagDeleteComponent } from './tag-delete/tag-delete.component';
+import { RegisterComponent } from './register/register.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent},
   { path: 'login', component: LoginComponent},
+  { path: 'register', component: RegisterComponent},
   { path: 'tag', component: TagDashboardComponent},
   { path: 'tag/add', component: TagAddComponent},
   { path: 'tag/update/:id', component: TagUpdateComponent},
