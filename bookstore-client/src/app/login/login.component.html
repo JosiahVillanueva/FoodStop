@@ -23,7 +23,11 @@
         <div *ngIf="password.errors.required">
             Password is required.
         </div>
-    </div> 
+    </div>
+
+    <div *ngIf="showErrorMessage">
+        Invalid username and password Please try again
+    </div>
 
     <p>
         <button type="submit" value="submit" (click)="login()">Submit</button>

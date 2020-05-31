@@ -23,7 +23,7 @@ export class ApiService {
   public login(user: User[]) {
     const url = "http://localhost:3000/api/auth/login";
     
-    return this.http.post(url, user);
+    return this.http.post(url, user, {observe : 'response'});
   }
 
   async getBooks() {

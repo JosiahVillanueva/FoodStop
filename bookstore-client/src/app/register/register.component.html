@@ -1,10 +1,10 @@
-<input id="title" placeholder="username"
-
-[(ngModel)]="user.username"
+<input id="username" placeholder="username"
+    [(ngModel)]="user.username"
 >
 
-<input id="title" placeholder="password"
-[(ngModel)]="user.password"
+<input id="password" placeholder="password"
+    [(ngModel)]="user.password"
+    type="password"
 >
 
 <button type=”button” (click)="register()">Submit</button>
