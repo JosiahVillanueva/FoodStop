@@ -26,6 +26,12 @@ export class ApiService {
     return this.http.post(url, user, {observe : 'response'});
   }
 
+  async register(user: User[]) {
+    const url = 'http://localhost:3000/api/books/post/user';
+
+    return this.http.post(url, user);
+  }
+
   async getBooks() {
     const url = 'http://localhost:3000/api/books/get/allBooks';
 
@@ -85,7 +91,6 @@ export class ApiService {
     const url = 'http://localhost:3000/api/tag/post/tag';
 
     return this.http.post(url, tag);
-
   }
 
   async updateTag(id: string, tag: Tag[]) {
@@ -100,9 +105,9 @@ export class ApiService {
     return this.http.delete(url);
   }
 
-  async register(user: User[]) {
-    const url = 'http://localhost:3000/api/books/post/user';
+  async getDiscoverTag() {
+    const url = 'http://localhost:3000/api/tag/get/discover';
 
-    return this.http.post(url, user);
+    return this.http.get(url);
   }
 }

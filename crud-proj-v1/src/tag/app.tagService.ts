@@ -37,6 +37,12 @@ export class TagService {
     return this.tagRepository.delete(id);
   }
 
+  async getDiscoverTag(): Promise<TagEntity[]> {
+    return await this.tagRepository.find({
+      where: [{ "show": 1 }]
+    });
+  }
+
   public async duplicate(value: string): Promise<boolean>{
     const result = await this.tagRepository.find({
       where: [{ "tagName": value }, { "tagHexColor": value }]

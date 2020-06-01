@@ -31,4 +31,8 @@ export class TagController{
     return await this.tagService.deleteTag(id)
   }
 
+  @Get('get/discover')
+  async getDiscoverTag(): Promise<any[]> {
+    return await this.tagService.getDiscoverTag();
+  }
 }
