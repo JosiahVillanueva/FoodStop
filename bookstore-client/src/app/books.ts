@@ -8,6 +8,6 @@ export class Books {
     this.id = id;
     this.title = title;
     this.description = description;
-    this.author = author;
+    // this.author = author;
   }
 }

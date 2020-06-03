@@ -22,7 +22,7 @@ export class BookUpdateComponent implements OnInit {
         Validators.required,
       ]),
       'description': new FormControl(),
-      'author': new FormControl(this.book.author, Validators.required)
+      // 'author': new FormControl(this.book.author, Validators.required)
     });
   }
 
@@ -31,13 +31,18 @@ export class BookUpdateComponent implements OnInit {
   get author() { return this.fg.get('author'); }
 
   updateBook(){
+    console.log("pasok updateBook")
     if (this.fg.valid) {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
       this.apiService.updateBook(this.id, this.book).subscribe(res => { 
+    console.log("pasok updateBook")
+
         // did not specify status code since may err naman 
         this.router.navigate(['dashboard']);
       },
       err=>{
+
+        console.log("pasok error")
         console.log("On Add Status Code Error"+err.status)
       });
     } else {

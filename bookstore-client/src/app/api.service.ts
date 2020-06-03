@@ -33,19 +33,19 @@ export class ApiService {
   }
 
   async getBooks() {
-    const url = 'http://localhost:3000/api/books/get/allBooks';
+    const url = 'http://localhost:3000/api/stores/get/allStores';
 
     return this.http.get(url);
   }
 
   public getBook(title: String) {
-    const url = 'http://localhost:3000/api/books/get/book/' + title;
+    const url = 'http://localhost:3000/api/stores/get/store/' + title;
 
     return this.http.get(url);
   }
 
   async addBook(book: Books[]) {
-    const url = 'http://localhost:3000/api/books/post/book';
+    const url = 'http://localhost:3000/api/stores/post/store';
 
     return this.http.post(url, book, {observe : 'response'})
     .pipe(
@@ -58,7 +58,7 @@ export class ApiService {
   }
 
   public updateBook(id: String, book: Books[]) {
-    const url = 'http://localhost:3000/api/books/put/book/' + id;
+    const url = 'http://localhost:3000/api/stores/put/store/' + id;  
 
     return this.http.put(url, book, {observe : 'response'}).pipe(
       map((data: any) => {
@@ -70,7 +70,7 @@ export class ApiService {
   }
 
   public deleteBook(title: String) {
-    const url = 'http://localhost:3000/api/books/delete/book/' + title;
+    const url = 'http://localhost:3000/api/stores/delete/store/' + title;
 
     return this.http.delete(url);
   }

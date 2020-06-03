@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { BookstoreModule } from './books/app.bookstoreModule';
+import { StoreModule } from './store/app.storeModule';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthModule } from './auth/auth.module';
 import { UsersModule } from './users/users.module';
@@ -10,7 +10,7 @@ import { TagModule } from './tag/app.tagModule';
 @Module({
   imports: [
     TypeOrmModule.forRoot(),
-    BookstoreModule,
+    StoreModule,
     TagModule,
     AuthModule,
     UsersModule,
