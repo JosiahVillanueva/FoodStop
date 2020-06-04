@@ -261,10 +261,10 @@
   border: 2px solid transparent;
   background: green;
   border-radius: 15px;
+  margin-top: 50px;
   margin-left: 265px;
-  margin-top: 70px;
-  margin-right: 820px;
-  width: 100%;
+  margin-right: 90px;
+  
 }
 
 .trending-tag-text {
@@ -286,6 +286,18 @@
   position: absolute;
   margin-left: 265px;
   margin-top: 95px;
+}
+
+.trending-open {
+  position: absolute;
+  margin-left: 865px;
+  margin-top: 50px;
+}
+
+.trending-contactNumber {
+  position: absolute;
+  margin-left: 865px;
+  margin-top: 80px;
 }
 
 .seperator-title {

@@ -75,6 +75,12 @@ export class ApiService {
     return this.http.delete(url);
   }
 
+  async getTrendingStore() {
+    const url = 'http://localhost:3000/api/stores/get/trending/store';
+
+    return this.http.get(url);
+  }
+
   async getTags() {
     const url = 'http://localhost:3000/api/tag/get/allTags';
 

@@ -14,15 +14,14 @@ export class BookDetailsComponent implements OnInit {
   constructor(private apiService: ApiService, private activetedRoute: ActivatedRoute) {}
 
   ngOnInit(): void {
-    this.getBook(this.id);
+    this.getBook();
   }
 
-  getBook(title:String){
+  getBook(){
     this.id = this.activetedRoute.snapshot.paramMap.get('id');
 
     this.apiService.getBook(this.id).subscribe(response => {
       this.books = response;
     }); 
   }
-
 }

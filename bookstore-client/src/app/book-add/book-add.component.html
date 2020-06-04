@@ -23,19 +23,83 @@
         >
     </div>
 
-    <label for="author">Author :</label>
+    <label for="pictures">Picture :</label>
     <input type="text" 
-        id="author" 
-        placeholder="Author" 
-        formControlName="author" 
-        [(ngModel)]="book.author"
+        id="pictures" 
+        placeholder="pictures" 
+        formControlName="pictures" 
+        [(ngModel)]="book.pictures"
     >
 
-    <div *ngIf="author.invalid && (author.dirty || author.touched)" class="required">
-        <div *ngIf="author.errors.required">
-                Author is required.
+    <div *ngIf="pictures.invalid && (pictures.dirty || pictures.touched)" class="required">
+        <div *ngIf="pictures.errors.required">
+            pictures is required.
         </div>
-    </div> 
+    </div>
+
+    <label for="rating">Rating :</label>
+    <input type="text" 
+        id="rating" 
+        placeholder="Rating" 
+        formControlName="rating" 
+        [(ngModel)]="book.rating"
+    >
+
+    <label for="tag">Tag :</label>
+    <input type="text" 
+        id="tag" 
+        placeholder="tag" 
+        formControlName="tag" 
+        [(ngModel)]="book.tag"
+    >
+
+    <label for="contactInformation">Contract Information :</label>
+    <input type="text" 
+        id="contactInformation" 
+        placeholder="contactInformation" 
+        formControlName="contactInformation" 
+        [(ngModel)]="book.contactInformation"
+    >
+
+    <label for="bestSeller">Best  Seller :</label>
+    <input type="text" 
+        id="bestSeller" 
+        placeholder="bestSeller" 
+        formControlName="bestSeller" 
+        [(ngModel)]="book.bestSeller"
+    >
+    
+    <label for="openingHours">Opening Hours :</label>
+    <input type="text" 
+        id="openingHours" 
+        placeholder="openingHours" 
+        formControlName="openingHours" 
+        [(ngModel)]="book.openingHours"
+    >
+    
+    <label for="location">location :</label>
+    <input type="text" 
+        id="location" 
+        placeholder="location" 
+        formControlName="location" 
+        [(ngModel)]="book.location"
+    >
+    
+    <label for="price">price :</label>
+    <input type="text" 
+        id="price" 
+        placeholder="price" 
+        formControlName="price" 
+        [(ngModel)]="book.price"
+    >
+
+    <label for="trending">trending :</label>
+    <input type="text" 
+        id="trending" 
+        placeholder="trending" 
+        formControlName="trending" 
+        [(ngModel)]="book.trending"
+    >
 
     <p>
         <button type=”button” (click)="submitBook()">Submit</button>

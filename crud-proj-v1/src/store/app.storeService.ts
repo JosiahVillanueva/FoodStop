@@ -39,6 +39,12 @@ export class StoreService {
     return this.storeRepository.delete(id);
   }
 
+  async getTrendingStore() {
+    return await this.storeRepository.find({
+      where: [{ "trending": 1 }]
+    });
+  }
+
   public async duplicate(value: string): Promise<boolean>{
     const result = await this.storeRepository.find({
       where: [{ "title": value }]

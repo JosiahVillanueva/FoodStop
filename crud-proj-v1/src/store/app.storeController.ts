@@ -30,4 +30,9 @@ export class StoreController{
   deleteStore(@Param('id') id: number) {
     return this.appService.deleteStore(id)
   }
+
+  @Get('get/trending/store')
+  async gretTrendingStore(): Promise<any[]> {
+    return await this.appService.getStores();
+  }
 }

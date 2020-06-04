@@ -42,16 +42,18 @@
 
 <div class="seperator-title">Trending</div>
 
-<div class="trending-container">
+<div class="trending-container" *ngFor="let store of stores">
     <img class="img-trending" src="https://i.ibb.co/db1YL5K/Background-Dark-Theme.jpg">
-    <div class="text-trending-title">Goody Too Foods</div>
-    <div class="trending-rating">4.5 Stars (1/232)</div>
+    <div class="text-trending-title">{{store.title}}</div>
+    <div class="trending-rating">{{store.rating}}</div>
 
         <div class="trending-tags trending-tag-text">Fruits</div>
     <!-- <div class="trending-tags">
         <div class="trending-tag-text">Healthy</div>
     </div>
      -->
-    <div class="trending-location">Location: Binan Laguna</div>
-    <div class="trending-price">Price for two (2): PHP 500</div>
+    <div class="trending-location">Location: {{store.location}}</div>
+    <div class="trending-price">Price for two (2): {{store.price}}</div>
+    <div class="trending-open .trending-tag-text">Today: {{store.openingHours}}</div>
+    <div class="trending-contactNumber .trending-tag-text">{{store.contractInformation}}</div>
 </div>

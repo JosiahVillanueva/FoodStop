@@ -32,7 +32,7 @@
       <td>{{book.id}}</td>
       <td [routerLink]="['/list', book.id]">{{book.title}}</td>
       <td>{{book.description}}</td>
-      <td>{{book.author}}</td>
+      <td>{{book.rating}}</td>
       <td>
         <button [routerLink]="['/update', book.id]">Edit</button>
         <button [routerLink]="['/delete', book.id]">Delete</button>

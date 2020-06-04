@@ -15,13 +15,19 @@ export class StoreEntity {
     description:string;
 
     @Column() 
+    location:string;
+
+    @Column() 
+    price:string;
+
+    @Column() 
     rating:string;
 
     @Column() 
     tag:string;
 
     @Column() 
-    contractInformation:string
+    contactInformation:string
 
     @Column() 
     bestSeller:string;
@@ -29,4 +35,6 @@ export class StoreEntity {
     @Column() 
     openingHours:string;
 
+    @Column()
+    trending:boolean;
 }

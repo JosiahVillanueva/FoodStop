@@ -8,11 +8,13 @@ import { ApiService } from '../api.service';
 })
 export class HomeComponent implements OnInit {
   tags: Object;
+  stores: Object
 
   constructor(private apiService: ApiService) { }
 
   ngOnInit(): void {
-    this.getTags()
+    this.getTags();
+    this.getTrendingStore();
   }
 
   async getTags() {
@@ -20,5 +22,10 @@ export class HomeComponent implements OnInit {
       this.tags = response;
     }); 
   }
-
+  
+  async getTrendingStore() {
+    (await this.apiService.getTrendingStore()).subscribe(response => {
+      this.stores = response;
+    }); 
+  }
 }

@@ -4,15 +4,24 @@
   <table border="1" style="width: 33%">
     <tr>
       <th>Id</th>
+      <th>picture</th>
       <th>Title</th>
       <th>Description</th>
-      <th>Author</th>
+      <th>Rating</th>
+      <th>Tags</th>
+      <th>Contract Info.</th>
+      <th>Best Seller</th>
+      <th>Opening Hours</th>
     </tr>
     <tr *ngFor="let book of books">
-      
-      <td>"{{book.id}}"</td>  
+      <td>{{book.id}}</td>
+      <td>{{book.pictures}}</td>
       <td>{{book.title}}</td>
       <td>{{book.description}}</td>
-      <td>{{book.author}}</td>
+      <td>{{book.rating}}</td>
+      <td>{{book.tag}}</td>
+      <td>{{book.contactInformation}}</td>
+      <td>{{book.bestSeller}}</td>
+      <td>{{book.openingHours}}</td>
     </tr>
   </table>
