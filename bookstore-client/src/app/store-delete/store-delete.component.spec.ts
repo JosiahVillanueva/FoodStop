@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { BookAddComponent } from './book-add.component';
+import { StoreDeleteComponent } from './store-delete.component';
 
-describe('AddComponent', () => {
-  let component: BookAddComponent;
-  let fixture: ComponentFixture<BookAddComponent>;
+describe('DeleteComponent', () => {
+  let component: StoreDeleteComponent;
+  let fixture: ComponentFixture<StoreDeleteComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ BookAddComponent ]
+      declarations: [ StoreDeleteComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(BookAddComponent);
+    fixture = TestBed.createComponent(StoreDeleteComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

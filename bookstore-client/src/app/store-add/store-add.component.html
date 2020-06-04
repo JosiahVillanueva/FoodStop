@@ -1,0 +1,122 @@
+<h3>Add a New Book</h3>
+
+<formGroup [formGroup]="fg">
+
+    <div>
+        <label for="pictures">Pictures :</label>
+        <input type="text" 
+            id="pictures" 
+            placeholder="pictures" 
+            formControlName="pictures" 
+            [(ngModel)]="book.pictures">
+
+        <div *ngIf="pictures.invalid && (pictures.dirty || pictures.touched)" class="required">
+            <div *ngIf="pictures.errors.required">
+                pictures is required.
+            </div>
+        </div>
+    </div>
+    
+    <div>
+        <label for="title">Title :</label>
+        <input id="title" placeholder="Title"
+            formControlName="title"
+            [(ngModel)]="book.title">
+
+        <div *ngIf="title.invalid && (title.dirty || title.touched)">
+            <div *ngIf="title.errors.required">
+                Title is required.
+            </div>
+        </div>
+     </div>
+    
+     <div>
+        <label for="description">Description :</label>
+        <input type="text" id="description"
+            placeholder="Description" 
+            formControlName="description" 
+            [(ngModel)]="book.description">
+    </div>
+
+    <div>
+        <label for="rating">Rating :</label>
+        <input type="text" 
+            id="rating" 
+            placeholder="ex. 3.1" 
+            formControlName="rating" 
+            [(ngModel)]="book.rating">
+    </div>
+
+    <div>
+        <label for="tag">Tag :</label>
+        <input type="text" 
+            id="tag" 
+            placeholder="tag" 
+            formControlName="tag" 
+            [(ngModel)]="book.tag">
+    </div>
+
+    <div>
+    <label for="contactInformation">Contract Information :</label>
+    <input type="text" 
+        id="contactInformation" 
+        placeholder="contactInformation" 
+        formControlName="contactInformation" 
+        [(ngModel)]="book.contactInformation">
+    </div>
+
+    <div>
+        <label for="bestSeller">Best  Seller :</label>
+        <input type="text" 
+            id="bestSeller" 
+            placeholder="bestSeller" 
+            formControlName="bestSeller" 
+            [(ngModel)]="book.bestSeller">
+    </div>
+    
+    <div>
+        <label for="openingHours">Opening Hours :</label>
+        <input type="text" 
+            id="openingHours" 
+            placeholder="openingHours" 
+            formControlName="openingHours" 
+            [(ngModel)]="book.openingHours">
+    </div>
+
+    <div>
+        <label for="location">location :</label>
+        <input type="text" 
+            id="location" 
+            placeholder="location" 
+            formControlName="location" 
+            [(ngModel)]="book.location">
+    </div>
+    
+    <!-- 
+        Price range na lang kaya ito? tapos inner join ko na lang silang dalawa? 
+        So bale dalawang field sya ng min and max price then mag kaka validation ako na max should be
+        lower than min
+    -->
+    <div>
+        <label for="price">price :</label>
+        <input type="text" 
+            id="price" 
+            placeholder="price" 
+            formControlName="price" 
+            [(ngModel)]="book.price">
+    </div>
+
+    <div>
+        <label for="trending">trending :</label>
+        <input type="text" 
+            id="trending" 
+            placeholder="trending" 
+            formControlName="trending" 
+            [(ngModel)]="book.trending">
+    </div>
+
+    <p>
+        <button type=”button” (click)="submitBook()">Submit</button>
+    </p>
+
+</formGroup>

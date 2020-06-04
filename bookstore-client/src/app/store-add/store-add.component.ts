@@ -5,10 +5,10 @@ import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-book-add',
-  templateUrl: './book-add.component.html',
-  styleUrls: ['./book-add.component.css']
+  templateUrl: './store-add.component.html',
+  styleUrls: ['./store-add.component.css']
 })
-export class BookAddComponent implements OnInit {
+export class StoreAddComponent implements OnInit {
   book: any = {};
   fg: FormGroup;
 

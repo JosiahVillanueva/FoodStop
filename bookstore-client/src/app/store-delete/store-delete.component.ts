@@ -4,10 +4,10 @@ import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-delete',
-  templateUrl: './book-delete.component.html',
-  styleUrls: ['./book-delete.component.css']
+  templateUrl: './store-delete.component.html',
+  styleUrls: ['./store-delete.component.css']
 })
-export class BookDeleteComponent implements OnInit {
+export class StoreDeleteComponent implements OnInit {
   id: String;
 
   constructor(private apiService: ApiService, private activeRoute: ActivatedRoute) { }

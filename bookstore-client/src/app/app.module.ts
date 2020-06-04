@@ -4,12 +4,12 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
-import { BookAddComponent } from './book-add/book-add.component';
+import { StoreDashboardComponent } from './store-dashboard/store-dashboard.component';
+import { StoreDetailsComponent } from './book-details/store-details.component';
+import { StoreAddComponent } from './store-add/store-add.component';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
-import { BookUpdateComponent } from './book-update/book-update.component';
-import { BookDeleteComponent } from './book-delete/book-delete.component';
+import { StoreUpdateComponent } from './store-update/store-update.component';
+import { StoreDeleteComponent } from './store-delete/store-delete.component';
 import { LoginComponent } from './login/login.component';
 import { ErrorPageComponent } from './error-page/error-page.component';
 import { HomeComponent } from './home/home.component';
@@ -23,11 +23,11 @@ import { RegisterComponent } from './register/register.component';
 @NgModule({
   declarations: [
     AppComponent,
-    BookDashboardComponent,
-    BookDetailsComponent,
-    BookAddComponent,
-    BookUpdateComponent, 
-    BookDeleteComponent, 
+    StoreDashboardComponent,
+    StoreDetailsComponent,
+    StoreAddComponent,
+    StoreUpdateComponent, 
+    StoreDeleteComponent, 
     LoginComponent, 
     ErrorPageComponent, 
     HomeComponent, 

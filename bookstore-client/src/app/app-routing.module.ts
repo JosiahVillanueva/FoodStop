@@ -1,11 +1,11 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
-import { BookDashboardComponent } from './book-dashboard/book-dashboard.component';
-import { BookDetailsComponent } from './book-details/book-details.component';
-import { BookAddComponent } from './book-add/book-add.component';
-import { BookUpdateComponent } from './book-update/book-update.component';
-import { BookDeleteComponent } from './book-delete/book-delete.component';
+import { StoreDashboardComponent } from './store-dashboard/store-dashboard.component';
+import { StoreDetailsComponent } from './book-details/store-details.component';
+import { StoreAddComponent } from './store-add/store-add.component';
+import { StoreUpdateComponent } from './store-update/store-update.component';
+import { StoreDeleteComponent } from './store-delete/store-delete.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { ErrorPageComponent } from './error-page/error-page.component';
@@ -24,11 +24,11 @@ const routes: Routes = [
   { path: 'tag/add', component: TagAddComponent, canActivate: [AuthGuardService]},
   { path: 'tag/update/:id', component: TagUpdateComponent, canActivate: [AuthGuardService]},
   { path: 'tag/delete/:id', component: TagDeleteComponent, canActivate: [AuthGuardService]},
-  { path: 'dashboard', component: BookDashboardComponent, canActivate: [AuthGuardService]},
-  { path: 'list/:id', component: BookDetailsComponent, canActivate: [AuthGuardService]},
-  { path: 'add', component: BookAddComponent, canActivate: [AuthGuardService]},
-  { path: 'update/:id', component: BookUpdateComponent, canActivate: [AuthGuardService]},
-  { path: 'delete/:id', component: BookDeleteComponent, canActivate: [AuthGuardService]},
+  { path: 'dashboard', component: StoreDashboardComponent, canActivate: [AuthGuardService]},
+  { path: 'list/:id', component: StoreDetailsComponent, canActivate: [AuthGuardService]},
+  { path: 'add', component: StoreAddComponent, canActivate: [AuthGuardService]},
+  { path: 'update/:id', component: StoreUpdateComponent, canActivate: [AuthGuardService]},
+  { path: 'delete/:id', component: StoreDeleteComponent, canActivate: [AuthGuardService]},
   { path: '**', component: ErrorPageComponent}
 ]; 
 
