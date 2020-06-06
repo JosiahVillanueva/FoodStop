@@ -12,10 +12,10 @@ export class StoreDeleteComponent implements OnInit {
 
   constructor(private apiService: ApiService, private activeRoute: ActivatedRoute) { }
 
-  ngOnInit(): void {
+  async ngOnInit(): Promise<void> {
     this.id = this.activeRoute.snapshot.paramMap.get('id');
 
-    this.apiService.deleteBook(this.id).subscribe();
+    (await this.apiService.deleteBook(this.id)).subscribe();
   }
 
 }

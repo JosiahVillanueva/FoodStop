@@ -29,20 +29,14 @@ export class StoreUpdateComponent implements OnInit {
   get description() { return this.fg.get('description'); }
   get author() { return this.fg.get('author'); }
 
-  updateBook(){
-    console.log("pasok updateBook")
+  async updateBook() {
     if (this.fg.valid) {
       this.id = this.activatedRoute.snapshot.paramMap.get('id');
-      this.apiService.updateBook(this.id, this.book).subscribe(res => { 
-    console.log("pasok updateBook")
-
-        // did not specify status code since may err naman 
+      (await this.apiService.updateBook(this.id, this.book)).subscribe(res => { 
         this.router.navigate(['dashboard']);
       },
       err=>{
-
-        console.log("pasok error")
-        console.log("On Add Status Code Error"+err.status)
+        console.log("On UPdate Status Code Error"+err.status)
       });
     } else {
       this.fg.get('title').markAsTouched();

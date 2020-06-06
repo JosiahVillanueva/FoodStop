@@ -5,7 +5,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreDashboardComponent } from './store-dashboard/store-dashboard.component';
-import { StoreDetailsComponent } from './book-details/store-details.component';
+import { StoreDetailsComponent } from './store-details/store-details.component';
 import { StoreAddComponent } from './store-add/store-add.component';
 import { FormsModule, ReactiveFormsModule, } from '@angular/forms';
 import { StoreUpdateComponent } from './store-update/store-update.component';

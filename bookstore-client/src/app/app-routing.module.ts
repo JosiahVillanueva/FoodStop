@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { StoreDashboardComponent } from './store-dashboard/store-dashboard.component';
-import { StoreDetailsComponent } from './book-details/store-details.component';
+import { StoreDetailsComponent } from './store-details/store-details.component';
 import { StoreAddComponent } from './store-add/store-add.component';
 import { StoreUpdateComponent } from './store-update/store-update.component';
 import { StoreDeleteComponent } from './store-delete/store-delete.component';

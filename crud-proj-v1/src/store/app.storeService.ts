@@ -36,7 +36,7 @@ export class StoreService {
   }
 
   async deleteStore(id: number) {
-    return this.storeRepository.delete(id);
+    return await this.storeRepository.delete(id);
   }
 
   async getTrendingStore() {

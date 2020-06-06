@@ -17,10 +17,10 @@ export class StoreDetailsComponent implements OnInit {
     this.getBook();
   }
 
-  getBook(){
+  async getBook(){
     this.id = this.activetedRoute.snapshot.paramMap.get('id');
 
-    this.apiService.getBook(this.id).subscribe(response => {
+    (await this.apiService.getBook(this.id)).subscribe(response => {
       this.books = response;
     }); 
   }

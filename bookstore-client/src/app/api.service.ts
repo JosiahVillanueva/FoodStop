@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Books } from './books';
 import { Tag } from './tag';
 import { User } from './user';
@@ -20,7 +20,7 @@ const httpOptions = {
 export class ApiService {
   constructor(private http: HttpClient) {}
 
-  public login(user: User[]) {
+  async login(user: User[]) {
     const url = "http://localhost:3000/api/auth/login";
     
     return this.http.post(url, user, {observe : 'response'});
@@ -38,7 +38,7 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  public getBook(title: String) {
+  async getBook(title: String) {
     const url = 'http://localhost:3000/api/stores/get/store/' + title;
 
     return this.http.get(url);
@@ -57,7 +57,7 @@ export class ApiService {
     );
   }
 
-  public updateBook(id: String, book: Books[]) {
+  async updateBook(id: String, book: Books[]) {
     const url = 'http://localhost:3000/api/stores/put/store/' + id;  
 
     return this.http.put(url, book, {observe : 'response'}).pipe(
@@ -69,7 +69,7 @@ export class ApiService {
     );;
   }
 
-  public deleteBook(title: String) {
+  async deleteBook(title: String) {
     const url = 'http://localhost:3000/api/stores/delete/store/' + title;
 
     return this.http.delete(url);

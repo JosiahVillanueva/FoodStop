@@ -23,11 +23,11 @@ export class StoreDashboardComponent implements OnInit {
     }); 
   }
 
-  getBook() {
+  async getBook() {
     if (!this.title || !this.title.replace(/\s/g, '').length || this.title.length < 0) {
       //redirect to allBook?
     } else {
-      this.apiService.getBook(this.title).subscribe(response => {
+      (await this.apiService.getBook(this.title)).subscribe(response => {
         this.books = response;
       }); 
     }
