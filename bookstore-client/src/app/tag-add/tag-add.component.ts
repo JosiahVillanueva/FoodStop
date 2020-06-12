@@ -10,17 +10,20 @@ import { Router } from '@angular/router';
 })
 export class TagAddComponent implements OnInit {
   tag: any = {};
+  availablePriorities: any = [];
   fg: FormGroup;
 
   constructor(private apiService: ApiService, private router: Router) {}
 
   ngOnInit(): void {
+    this.getAvailablePriorities();
+
     this.fg = new FormGroup({
       'picture': new FormControl(this.tag.picture, [Validators.required,]),
       'tagName': new FormControl(this.tag.tagName, Validators.required),
       'tagDescription': new FormControl(),
-      'tagHexColor': new FormControl(this.tag.tagHexColor, Validators.required)
-
+      'tagHexColor': new FormControl(this.tag.tagHexColor, Validators.required),
+      'show': new FormControl(this.tag.show, Validators.required)
     });
   }
 
@@ -28,6 +31,7 @@ export class TagAddComponent implements OnInit {
   get tagName() { return this.fg.get('tagName'); }
   get tagDescription() { return this.fg.get('tagDescription'); }
   get tagHexColor() { return this.fg.get('tagHexColor'); }
+  get show() { return this.fg.get('show'); }
 
   async submitTag() {
     if (this.fg.valid) {
@@ -42,5 +46,11 @@ export class TagAddComponent implements OnInit {
       this.fg.get('tagName').markAsTouched();
       this.fg.get('tagHexColor').markAsTouched();
     }
+  }
+
+  async getAvailablePriorities(){
+    (await this.apiService.getAvailPriorities()).subscribe(response => {
+      this.availablePriorities = response;
+    }); 
   }
 }

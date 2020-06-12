@@ -35,4 +35,9 @@ export class TagController{
   async getDiscoverTag(): Promise<any[]> {
     return await this.tagService.getDiscoverTag();
   }
+
+  @Get('get/availPriorities')
+  async getAvailablePriority(): Promise<any[]> {
+    return await this.tagService.getAvailablePriority();
+  }
 }

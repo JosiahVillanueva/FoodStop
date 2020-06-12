@@ -1,8 +1,9 @@
-import { Injectable, Logger, NestMiddleware } from '@nestjs/common';
+import { Injectable } from '@nestjs/common';
 import e = require('express');
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository, getConnection, Entity } from 'typeorm';
+import { Repository } from 'typeorm';
 import { TagEntity } from './tag.entity'
+import {MoreThanOrEqual} from "typeorm";
 
 @Injectable()
 export class TagService {
@@ -38,16 +39,35 @@ export class TagService {
   }
 
   async getDiscoverTag(): Promise<TagEntity[]> {
+    this.getAvailablePriority()
+
     return await this.tagRepository.find({
-      where: [{ "show": 1 }]
+      where: [{ show: MoreThanOrEqual(1) }], 
+      order: {
+        show: "ASC"
+      }
     });
+  }
+
+  async getAvailablePriority() {
+    var priorities = [1, 2, 3, 4, 5, 6];
+    var show = [];
+
+    const result = await this.tagRepository.find({
+      where: { show: MoreThanOrEqual(1) }, 
+    });
+
+    result.forEach(element => show.push(element.show))
+    show = priorities.filter(x => !show.includes(x));
+
+    return show;
   }
 
   public async duplicate(value: string): Promise<boolean>{
     const result = await this.tagRepository.find({
       where: [{ "tagName": value }, { "tagHexColor": value }]
     });
-    
+
     return result.length >= 1;
   }
 }

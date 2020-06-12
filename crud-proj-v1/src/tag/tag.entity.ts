@@ -18,5 +18,5 @@ export class TagEntity {
     tagHexColor:string;
 
     @Column()
-    show: boolean;
+    show: number;
 }

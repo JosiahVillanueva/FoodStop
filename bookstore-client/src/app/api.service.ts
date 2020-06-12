@@ -1,17 +1,11 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Books } from './books';
 import { Tag } from './tag';
+import { StoreTag } from './storeTag';
 import { User } from './user';
 import { throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-
-const httpOptions = {
-  headers: new HttpHeaders({
-  'Content-Type': 'application/json',
-  'Authorization': 'my-auth-token'
-  })
-};
 
 @Injectable({
   providedIn: 'root'
@@ -81,6 +75,19 @@ export class ApiService {
     return this.http.get(url);
   }
 
+  async addStoreTag(storetag: StoreTag) {
+    const url = 'http://localhost:3000/api/stores/post/storeTag';
+
+    return this.http.post(url, storetag, {observe : 'response'})
+    .pipe(
+      map((data: any) => {
+        return data;
+      }), catchError( error => {
+        return throwError( 'Something went wrong!' );
+      })
+    );
+  }
+
   async getTags() {
     const url = 'http://localhost:3000/api/tag/get/allTags';
 
@@ -113,6 +120,12 @@ export class ApiService {
 
   async getDiscoverTag() {
     const url = 'http://localhost:3000/api/tag/get/discover';
+
+    return this.http.get(url);
+  }
+
+  async getAvailPriorities(){
+    const url = "http://localhost:3000/api/tag/get/availPriorities";
 
     return this.http.get(url);
   }

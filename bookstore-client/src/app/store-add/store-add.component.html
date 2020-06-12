@@ -49,20 +49,18 @@
 
     <div>
         <label for="tag">Tag :</label>
-        <input type="text" 
-            id="tag" 
-            placeholder="tag" 
-            formControlName="tag" 
-            [(ngModel)]="book.tag">
+        <select id="choseTags" formControlName="choseTags" [(ngModel)]="choseTags" multiple>
+            <option *ngFor="let tag of tags">{{tag.tagName}}</option>
+        </select>
     </div>
 
     <div>
-    <label for="contactInformation">Contract Information :</label>
-    <input type="text" 
-        id="contactInformation" 
-        placeholder="contactInformation" 
-        formControlName="contactInformation" 
-        [(ngModel)]="book.contactInformation">
+        <label for="contactInformation">Contact Information :</label>
+        <input type="text" 
+            id="contactInformation" 
+            placeholder="contactInformation" 
+            formControlName="contactInformation" 
+            [(ngModel)]="book.contactInformation">
     </div>
 
     <div>
