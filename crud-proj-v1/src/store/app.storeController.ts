@@ -41,4 +41,9 @@ export class StoreController{
   async addStoreTag(@Body() bDto: StoreTagEntity): Promise<StoreTagEntity> {
     return await this.appService.addStoreTag(bDto);
   }
+
+  @Get('get/storeTag/:id')
+  async getStoreTag(@Param('id') id: string) {
+    return this.appService.getStoreTag(id);
+  }
 }

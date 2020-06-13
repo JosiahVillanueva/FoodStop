@@ -12,7 +12,7 @@ export class StoreAddComponent implements OnInit {
   book: any = {};
   storeTag: any = {};
   tags: Object;
-  choseTags: string;
+  choseTags: any = {};
   fg: FormGroup;
 
   constructor(private apiService: ApiService, private router: Router) {}
@@ -49,16 +49,14 @@ export class StoreAddComponent implements OnInit {
 
   async submitBook() {
     if (this.fg.valid) {
-      // this.book.tag = this.choseTags.toString();
+      (await this.apiService.addBook(this.book)).subscribe( res => {
+        this.choseTags.forEach(element => {
+          this.storeTag.storeId = res.body.id;
+          this.storeTag.tag = element;
 
-      (await this.apiService.addBook(this.book)).subscribe(async res => {
-        console.log("body " + res.body.id);
-
-        this.storeTag.storeId = res.body.id;
-        this.storeTag.tag = this.choseTags.toString();
-        (await this.apiService.addStoreTag(this.storeTag)).subscribe();
+          this.apiService.addStoreTag(this.storeTag).subscribe();
+        });
         
-        // did not specify status code since may err naman 
         this.router.navigate(['dashboard']);
       },
       err=>{

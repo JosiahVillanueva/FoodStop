@@ -9,6 +9,7 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class StoreDetailsComponent implements OnInit {
   books: Object;
+  storeTags: Object;
   id: String;
 
   constructor(private apiService: ApiService, private activetedRoute: ActivatedRoute) {}
@@ -21,7 +22,11 @@ export class StoreDetailsComponent implements OnInit {
     this.id = this.activetedRoute.snapshot.paramMap.get('id');
 
     (await this.apiService.getBook(this.id)).subscribe(response => {
-      this.books = response;
+      this.books = response; 
+    });
+
+    (await this.apiService.getStoreTag(this.id)).subscribe(response => {
+      this.storeTags = response;
     }); 
   }
 }

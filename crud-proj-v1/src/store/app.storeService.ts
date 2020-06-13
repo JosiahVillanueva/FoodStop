@@ -50,9 +50,9 @@ export class StoreService {
     return await this.storeTagRepository.save(storeTagEntity);
   }
 
-  async getStoreTag(id: string): Promise<StoreEntity[]> {
-    return await this.storeRepository.find({
-      where: [{ "title": id }, {"id" : id}]
+  async getStoreTag(id: string): Promise<StoreTagEntity[]> {
+    return await this.storeTagRepository.find({
+      where: [{ "storeId": id }]
     });
   }
 

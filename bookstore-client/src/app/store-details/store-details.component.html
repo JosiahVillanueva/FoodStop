@@ -19,7 +19,9 @@
       <td>{{book.title}}</td>
       <td>{{book.description}}</td>
       <td>{{book.rating}}</td>
-      <td>{{book.tag}}</td>
+      <div *ngFor="let storeTag of storeTags">
+        <td>{{storeTag.tag}}</td>
+      </div> 
       <td>{{book.contactInformation}}</td>
       <td>{{book.bestSeller}}</td>
       <td>{{book.openingHours}}</td>
