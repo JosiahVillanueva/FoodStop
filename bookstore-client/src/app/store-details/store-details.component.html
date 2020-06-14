@@ -5,13 +5,16 @@
     <tr>
       <th>Id</th>
       <th>Pictures</th>
-      <th>Title</th>
+      <th>Store Name</th>
       <th>Description</th>
       <th>Rating</th>
       <th>Tags</th>
-      <th>Contact Information </th>
+      <th>Location</th>
+      <th>Contact Information</th>
+      <th>Price</th>
       <th>Best Seller</th>
       <th>Opening Hours</th>
+      <th>Trending</th>
     </tr>
     <tr *ngFor="let book of books">
       <td>{{book.id}}</td>
@@ -22,8 +25,11 @@
       <div *ngFor="let storeTag of storeTags">
         <td>{{storeTag.tag}}</td>
       </div> 
+      <td>{{book.location}}</td>
       <td>{{book.contactInformation}}</td>
+      <td>{{book.price}} PHP</td>
       <td>{{book.bestSeller}}</td>
       <td>{{book.openingHours}}</td>
+      <td>{{book.trending}}</td>
     </tr>
   </table>

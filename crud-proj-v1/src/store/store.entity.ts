@@ -24,9 +24,6 @@ export class StoreEntity {
     rating:string;
 
     @Column() 
-    tag:string;
-
-    @Column() 
     contactInformation:string
 
     @Column() 
