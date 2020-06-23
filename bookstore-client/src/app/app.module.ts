@@ -19,6 +19,7 @@ import { TagAddComponent } from './tag-add/tag-add.component';
 import { TagUpdateComponent } from './tag-update/tag-update.component';
 import { TagDeleteComponent } from './tag-delete/tag-delete.component';
 import { RegisterComponent } from './register/register.component';
+import { NavbarComponent } from './common/navbar.component';
 
 @NgModule({
   declarations: [
@@ -36,6 +37,7 @@ import { RegisterComponent } from './register/register.component';
     TagUpdateComponent, 
     TagDeleteComponent, 
     RegisterComponent, 
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,

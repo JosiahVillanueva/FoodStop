@@ -53,52 +53,84 @@
 }
 
 /* Start New */
-
 .mainImgContent {
-  position: relative;
-  width: 90%;
-  height:500px;
-  top: 30px;
-  left: 100px;
-  /* right: 150px; */
+  position: absolute;
+  width: 100%;
+  height:400px;
 }
 
 .foodStopMoto {
-    position: absolute;
-    top: 20%;
-    left: 15%;
+  position: relative;
+  text-align: center;
+  top: 30px;
+  font-style: italic;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+  line-height: 1.3; 
+}
+
+.seperator-title {
+  position: relative;
+  font-size: 28px;
+  font-weight: 500;
+  font-family: 'Dancing Script', cursive;
+  margin-left: 265px;
+  margin-right: auto;
+  margin-top: 400px;
+  /* margin-bottom: 0px; */
+}
+
+@media only screen and (max-width: 700px) {
+  .mainImgContent {
+    height:200px;
+  }
+
+  .foodStopMoto {
+    font-size: 13px;
+    color: black;
+  }
+  
+  .seperator-title {
+    margin-left: 10px;
+    
+  }
+}
+
+@media only screen and (min-width: 700px) {
+  .foodStopMoto {
     font-size: 24px;
-    font-style: italic;
-    font-family: 'Montserrat', sans-serif;
-    font-weight: 700;
-    line-height: 1.3; 
-    width: 600px;
+    color: white;
+  }
 }
 
 * {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    outline: none;
-    list-style: none;
-    font-family: 'Montserrat', sans-serif;
-  }
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+}
   
-  .wrapper{
-    position: absolute;
-    top: 33%;
-    left: 31%;
-    transform: translate(-50%,-50%);
-  }
+.wrapper{
+  position: relative;
+  top: 100px;
+  /* margin: auto; */
   
-  .wrapper .search_box{
-    width: 600px;
-    background: black;
-    border-radius: 5px;
-    height: 65px;
-    display: flex;
-    padding: 10px;
-    box-shadow: 0 8px 6px -10px #b3c6ff;
+  width: 0px;
+  transform: translate(-50%,-50%);
+}
+  
+.wrapper .search_box{
+  margin: 0 auto;
+  width: 600px;
+  background: black;
+  border-radius: 5px;
+  height: 65px;
+  display: flex;
+  padding: 10px;
+  box-shadow: 0 8px 6px -10px #b3c6ff;
   }
   
   .wrapper .search_box .dropdown{
@@ -300,12 +332,3 @@
   margin-top: 80px;
 }
 
-.seperator-title {
-  position: relative;
-  font-size: 28px;
-  font-weight: 500;
-  font-family: 'Dancing Script', cursive;
-  margin-left: 265px;
-  margin-top: 50px;
-  margin-bottom: 0px;
-}

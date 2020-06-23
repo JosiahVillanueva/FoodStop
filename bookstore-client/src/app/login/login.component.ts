@@ -3,13 +3,11 @@ import { ApiService } from '../api.service';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { UserService } from '../user.service';
 import { Router } from '@angular/router';
-import { HttpHeaders } from '@angular/common/http';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.css'],
-  
 })
 export class LoginComponent implements OnInit {
   user: any = {};
