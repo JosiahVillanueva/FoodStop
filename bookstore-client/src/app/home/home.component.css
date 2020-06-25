@@ -53,6 +53,16 @@
 }
 
 /* Start New */
+* {
+  margin-left: auto;
+  margin-right: auto;
+  padding: 0;
+  box-sizing: border-box;
+  outline: none;
+  list-style: none;
+  font-family: 'Montserrat', sans-serif;
+}
+
 .mainImgContent {
   position: absolute;
   width: 100%;
@@ -62,6 +72,7 @@
 .foodStopMoto {
   position: relative;
   text-align: center;
+  font-size: 17px;
   top: 30px;
   font-style: italic;
   font-family: 'Montserrat', sans-serif;
@@ -74,43 +85,124 @@
   font-size: 28px;
   font-weight: 500;
   font-family: 'Dancing Script', cursive;
-  margin-left: 265px;
-  margin-right: auto;
-  margin-top: 400px;
-  /* margin-bottom: 0px; */
 }
 
-@media only screen and (max-width: 700px) {
+.discover-separator {
+  padding: 450px 0px 0px 200px;
+}
+
+.flex-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin-left: 100px;
+  margin-right: 100px
+}
+  
+.discover-container {
+  position: relative;
+  border-radius: 15px;
+  top: 40px;
+  width: 300px;
+  height: 250px;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 3px solid gray;
+}
+
+.discover-img {
+  border-radius: 15px;
+  width: 100%;
+  height: 170px;
+}
+
+.discover-title {
+  font-family: 'Montserrat', sans-serif;
+  text-align: center;
+  padding-top: 20px;
+  font-weight: 700;
+  font-size: 24px;
+} 
+
+.trending-separator {
+  padding: 70px 0px 0px 200px;
+}
+
+.trending-container {
+  position: relative;
+  border-radius: 15px;
+  border: 3px solid gray;
+  width: 65%;
+  height: 200px;
+  margin-top: 30px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 15px;
+}
+
+@media only screen and (max-width: 800px) {
+  /* For tablets */
   .mainImgContent {
     height:200px;
   }
 
+  .seperator-title {
+    font-size: 15px;
+  }
+
+  .discover-separator{
+    padding: 200px 0px 0px 50px;
+  }
+
+  .trending-separator {
+    padding: 20 px 0px 0px 50px;
+  }
+
+  .flex-container {
+    margin-left: 10px;
+    margin-right: 10px
+  }
+
+  .discover-container {
+    width: 30%;
+    top: 20px;
+    height: 150px;
+  }
+
+  .discover-img {
+    border-radius: 15px;
+    width: 100%;
+    height: 100px;
+  }
+
+  .discover-title {
+    text-align: center;
+    padding-top: 2px;
+    font-size: 15px;
+  }
+}
+
+@media only screen and (max-width: 500px) {
+  /* Mobile Device */
   .foodStopMoto {
     font-size: 13px;
     color: black;
   }
-  
-  .seperator-title {
-    margin-left: 10px;
-    
-  }
-}
 
-@media only screen and (min-width: 700px) {
-  .foodStopMoto {
-    font-size: 24px;
-    color: white;
+  .discover-container {
+    width: 45%;
+    height: 150px;
+    top: 20px;
   }
-}
 
-* {
-  margin-left: auto;
-  margin-right: auto;
-  padding: 0;
-  box-sizing: border-box;
-  outline: none;
-  list-style: none;
-  font-family: 'Montserrat', sans-serif;
+  .discover-img {
+    border-radius: 15px;
+  }
+
+  .discover-title {
+    text-align: center;
+    padding-top: 2px;
+    font-size: 15px;
+  }
 }
   
 .wrapper{
@@ -218,51 +310,6 @@
   :-ms-input-placeholder { /* IE 10+ */
     color: #9fa3b1;
   }
-
-.discover-container {
-    position: relative;
-    border-radius: 15px;
-    top: 40px;
-    width: 300px;
-    height: 250px;
-    padding: 10px;
-    border: 3px solid gray;
-    margin-left: 15px;
-    margin-bottom: 15px;
-}
-
-.flex-container {
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 0px;
-  margin-left: 250px;
-  margin-right: 150px;
-}
-
-.img-discover {
-  border-radius: 15px;
-  width: 100%;
-  height: 170px;
-}
-
-.text-title {
-  font-family: 'Montserrat', sans-serif;
-  text-align: center;
-  padding-top: 20px;
-  font-weight: 700;
-  font-size: 24px;
-}
-
-.trending-container {
-  position: relative;
-  border-radius: 15px;
-  border: 3px solid gray;
-  width: 65%;
-  height: 200px;
-  margin-top: 30px;
-  margin-left: 305px;
-  margin-bottom: 15px;
-}
 
 .img-trending {
   position: absolute;
