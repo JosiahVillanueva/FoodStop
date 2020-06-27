@@ -40,11 +40,18 @@
 
     <div>
         <label for="rating">Rating :</label>
-        <input type="text" 
+        <input type="number" 
             id="rating" 
             placeholder="ex. 3.1" 
             formControlName="rating" 
             [(ngModel)]="book.rating">
+        
+        <div *ngIf="rating.errors?.min">
+            Minimum required number is 0.
+        </div> 
+        <div *ngIf="rating.errors?.max">
+            Maximum number can be 5.
+        </div>
     </div>
 
     <div>

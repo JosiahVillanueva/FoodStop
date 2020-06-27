@@ -24,7 +24,7 @@ export class StoreAddComponent implements OnInit {
       'pictures': new FormControl(this.book.pictures, Validators.required),
       'title': new FormControl(this.book.title, [Validators.required,]),
       'description': new FormControl(),
-      'rating': new FormControl(this.book.rating),
+      'rating': new FormControl(this.book.rating, [Validators.min(0), Validators.max(5)]),
       'choseTags': new FormControl(this.choseTags),
       'bestSeller': new FormControl(this.book.bestSeller),
       'openingHours': new FormControl(this.book.openingHours, ),
@@ -64,7 +64,6 @@ export class StoreAddComponent implements OnInit {
       });
     } else {
       this.fg.get('title').markAsTouched();
-      this.fg.get('author').markAsTouched();
     }
   }
 
