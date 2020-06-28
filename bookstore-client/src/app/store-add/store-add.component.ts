@@ -22,15 +22,15 @@ export class StoreAddComponent implements OnInit {
 
     this.fg = new FormGroup({
       'pictures': new FormControl(this.book.pictures, Validators.required),
-      'title': new FormControl(this.book.title, [Validators.required,]),
+      'title': new FormControl(this.book.title, [Validators.required]),
       'description': new FormControl(),
       'rating': new FormControl(this.book.rating, [Validators.min(0), Validators.max(5)]),
       'choseTags': new FormControl(this.choseTags),
       'bestSeller': new FormControl(this.book.bestSeller),
       'openingHours': new FormControl(this.book.openingHours, ),
       'location': new FormControl(this.book.location, ),
-      'price': new FormControl(this.book.price, ),
-      'contactInformation': new FormControl(this.book.contactInformation, ),
+      'price': new FormControl(this.book.price, [Validators.min(0)]),
+      'contactInformation': new FormControl(this.book.contactInformation, [Validators.pattern("^((\\+639-?)|0)?[0-9]{9}$")]),
       'trending': new FormControl(this.book.trending, ),
     });
   } 
@@ -48,6 +48,8 @@ export class StoreAddComponent implements OnInit {
   get trending() { return this.fg.get('trending');}
 
   async submitBook() {
+    console.log(this.book)
+
     if (this.fg.valid) {
       (await this.apiService.addBook(this.book)).subscribe( res => {
         this.choseTags.forEach(element => {
@@ -63,7 +65,7 @@ export class StoreAddComponent implements OnInit {
         console.log("On Add Status Code Error"+err.status);
       });
     } else {
-      this.fg.get('title').markAsTouched();
+      this.title.markAsTouched();
     }
   }
 

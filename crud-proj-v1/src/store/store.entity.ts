@@ -33,5 +33,5 @@ export class StoreEntity {
     openingHours:string;
 
     @Column()
-    trending:boolean;
+    trending:number;
 }

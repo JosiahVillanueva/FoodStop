@@ -10,11 +10,11 @@ export class Books {
   location: String;
   price: String;
   contactInformation: String;
-  trending: String;
+  trending: boolean;
 
   constructor(id:number, picture:String, title:String, description:String, rating:String, tag:String, 
     bestSeller:String, openingHours:String, location:String, price:String, contactInformation:String,
-    trending:String) {
+    trending:boolean) {
 
     this.id = id;
     this.picture = picture;

@@ -68,6 +68,9 @@
             placeholder="contactInformation" 
             formControlName="contactInformation" 
             [(ngModel)]="book.contactInformation">
+        <div *ngIf="contactInformation.errors?.pattern">
+            Wrong Contact Info
+        </div>
     </div>
 
     <div>
@@ -113,11 +116,10 @@
 
     <div>
         <label for="trending">trending :</label>
-        <input type="text" 
-            id="trending" 
-            placeholder="trending" 
-            formControlName="trending" 
-            [(ngModel)]="book.trending">
+        <select id="trending" formControlName="trending" [(ngModel)]="book.trending">
+            <option>0</option>
+            <option>1</option>
+        </select>
     </div>
 
     <p>
