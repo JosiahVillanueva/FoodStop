@@ -1,3 +1,7 @@
-asd{
-    color: yellow;
+.indentFields {
+    margin-left: 50px;
+}
+
+.validationRed {
+    color: red;
 }

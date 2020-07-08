@@ -29,34 +29,38 @@
         </div>
     </div> 
 
-    <label for="tagDescription">Tag Description :</label>
-    <input type="text" 
-        id="tagDescription" 
-        placeholder="Tag Description" 
-        formControlName="tagDescription" 
-        [(ngModel)]="tag.tagDescription"
-    >
+    <div>
+        <label for="tagDescription">Tag Description :</label>
+        <input type="text" 
+            id="tagDescription" 
+            placeholder="Tag Description" 
+            formControlName="tagDescription" 
+            [(ngModel)]="tag.tagDescription"
+        >
+    </div>
 
-    <label for="tagHexColor">Hex Color :</label>
-    <input type="text" 
-        id="tagHexColor" 
-        placeholder="Hex Color" 
-        formControlName="tagHexColor" 
-        [(ngModel)]="tag.tagHexColor"
-    >
-
+    <div>
+        <label for="tagHexColor">Hex Color :</label>
+        <input type="text" 
+            id="tagHexColor" 
+            placeholder="Hex Color" 
+            formControlName="tagHexColor" 
+            [(ngModel)]="tag.tagHexColor"
+        >
+    </div>
     <div *ngIf="tagHexColor.invalid && (tagHexColor.dirty || tagHexColor.touched)" class="required">
         <div *ngIf="tagHexColor.errors.required">
                 Hex Color is required.
         </div>
     </div>
 
-    <label for="show">Show : </label> 
-    <select id="show" formControlName="show" [(ngModel)]="tag.show">
-        <option>0</option>
-        <option *ngFor="let priority of availablePriorities">{{priority}}</option>
-    </select>
-
+    <div>
+        <label for="show">Show : </label> 
+        <select id="show" formControlName="show" [(ngModel)]="tag.show">
+            <option>0</option>
+            <option *ngFor="let priority of availablePriorities">{{priority}}</option>
+        </select>
+    </div>
     <p>
         <button type=”button” (click)="submitTag()">Submit</button>
     </p>
