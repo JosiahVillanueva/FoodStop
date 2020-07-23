@@ -1,4 +1,5 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
+import { StoreOpenningHoursEntity } from './storeOpenningHours.entity';
 
 @Entity('store')
 export class StoreEntity {
@@ -29,9 +30,9 @@ export class StoreEntity {
     @Column() 
     bestSeller:string;
 
-    @Column() 
-    openingHours:string;
-
     @Column()
     trending:number;
+
+    @OneToMany(() => StoreOpenningHoursEntity, storeOpenningHoursEntity => storeOpenningHoursEntity.storeEntity)
+    openingHours: StoreOpenningHoursEntity[];
 }

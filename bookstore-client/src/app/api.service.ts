@@ -6,6 +6,7 @@ import { StoreTag } from './storeTag';
 import { User } from './user';
 import { throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
+import { StoreOpenningHours } from './storeOpenningHours';
 
 @Injectable({
   providedIn: 'root'
@@ -135,5 +136,11 @@ export class ApiService {
     const url = "http://localhost:3000/api/tag/get/availPriorities";
 
     return this.http.get(url);
+  }
+
+  async addOpenningHours(storeOpenningHours: StoreOpenningHours[]) {
+    const url = "http://localhost:3000/api/stores/post/storeOpenningHours";
+
+    return this.http.post(url, storeOpenningHours);
   }
 }

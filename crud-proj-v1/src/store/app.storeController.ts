@@ -2,6 +2,7 @@ import { Controller, Get, Param, Post, Body, Put, Delete, HttpCode, Redirect, Re
 import { StoreService } from './app.storeService';
 import { StoreEntity } from './store.entity'
 import { StoreTagEntity } from './storeTag.entity'
+import { StoreOpenningHoursEntity } from './storeOpenningHours.entity';
 
 @Controller('stores')
 export class StoreController{
@@ -32,11 +33,13 @@ export class StoreController{
     return this.appService.deleteStore(id)
   }
 
+  // Show Trending Store
   @Get('get/trending/store')
   async gretTrendingStore(): Promise<any[]> {
     return await this.appService.getStores();
   }
 
+  // Store Tag
   @Post('post/storeTag')
   async addStoreTag(@Body() bDto: StoreTagEntity): Promise<StoreTagEntity> {
     return await this.appService.addStoreTag(bDto);
@@ -45,5 +48,11 @@ export class StoreController{
   @Get('get/storeTag/:id')
   async getStoreTag(@Param('id') id: string) {
     return this.appService.getStoreTag(id);
+  }
+
+  // OpenningHrs
+  @Post('post/storeOpenningHours')
+  async addStoreOpenningHours(@Body() bDto: StoreOpenningHoursEntity): Promise<StoreOpenningHoursEntity> {
+    return await this.appService.addStoreOpenningHours(bDto);
   }
 }

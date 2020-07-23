@@ -12,7 +12,7 @@
 
         <div *ngIf="pictures.invalid && (pictures.dirty || pictures.touched)" class="required">
             <div *ngIf="pictures.errors.required">
-                pictures is required.
+                <div class="validationRed">Pictures is required.</div>
             </div>
         </div>
     </div>
@@ -24,7 +24,7 @@
             [(ngModel)]="book.title">
 
         <div *ngIf="title.invalid && (title.dirty || title.touched)">
-            <div *ngIf="title.errors.required">
+            <div *ngIf="title.errors.required" class="validationRed">
                 Title is required.
             </div>
         </div>
@@ -84,11 +84,14 @@
     
     <div>
         <label for="openingHours">Opening Hours :</label>
-        <input type="text" 
-            id="openingHours" 
-            placeholder="openingHours" 
-            formControlName="openingHours" 
-            [(ngModel)]="book.openingHours">
+
+        <div *ngFor="let storeDay of storeDays">
+            Monday ({{storeDay}}): 
+            <input type="text" [(ngModel)]="days[storeDay].day" formControlName="day" ng-init="days[storeDay].day='Bob'" value="Bob">
+            <input type="time" [(ngModel)]="days[storeDay].open" formControlName="openingHours">
+            <input type="time" [(ngModel)]="days[storeDay].close" formControlName="closingHours">
+        </div>
+
     </div>
 
     <div>

@@ -4,13 +4,19 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { StoreEntity } from './store.entity'
 import { StoreTagEntity } from './storeTag.entity'
+import { StoreOpenningHoursEntity } from './storeOpenningHours.entity';
 
 // Node JS > Nest JS (Swagger UI)
 
 @Injectable()
 export class StoreService {
-  constructor(@InjectRepository(StoreEntity) private storeRepository: Repository<StoreEntity>, 
-  @InjectRepository(StoreTagEntity) private storeTagRepository: Repository<StoreTagEntity>){}
+  a: StoreEntity;
+
+  constructor(
+    @InjectRepository(StoreEntity) private storeRepository: Repository<StoreEntity>, 
+    @InjectRepository(StoreTagEntity) private storeTagRepository: Repository<StoreTagEntity>,
+    @InjectRepository(StoreOpenningHoursEntity) private storeOpenningHoursRepository: Repository<StoreOpenningHoursEntity>,
+  ){}
 
   async getStores(): Promise<StoreEntity[]> {
     return await this.storeRepository.find();
@@ -23,13 +29,16 @@ export class StoreService {
   }
 
   async addStore(storeEntity: StoreEntity): Promise<StoreEntity> {
-    let store = await this.duplicate(storeEntity.title)
+    // let store = await this.duplicate(storeEntity.title)
 
-    if(store === true){
-      console.log("FAILED TO ADD store, HAS DUPLICATE");
-    } else {
+    // if(store === true){
+    //   console.log("FAILED TO ADD store, HAS DUPLICATE");
+    // } else {
+
+    this.a = storeEntity;
+
       return await this.storeRepository.save(storeEntity);
-    }
+    // }
   }
 
   async updateStore(id: number, storeEntity: StoreEntity) {
@@ -41,7 +50,7 @@ export class StoreService {
   }
 
   async getTrendingStore() {
-    return await this.storeRepository.find({
+    return await this.storeRepository.find({ 
       where: [{ "trending": 1 }]
     });
   }
@@ -54,6 +63,14 @@ export class StoreService {
     return await this.storeTagRepository.find({
       where: [{ "storeId": id }]
     });
+  }
+
+  async addStoreOpenningHours(storeOpenningHours: StoreOpenningHoursEntity): Promise<StoreOpenningHoursEntity> {
+    for(var a=0; a < Object.keys(storeOpenningHours).length; a+=1) {
+      storeOpenningHours[a].storeEntity = this.a;
+    }
+    
+    return await this.storeOpenningHoursRepository.save(storeOpenningHours);
   }
 
   public async duplicate(value: string): Promise<boolean> {
