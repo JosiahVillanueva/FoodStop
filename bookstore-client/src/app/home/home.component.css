@@ -195,7 +195,8 @@
 
 .trending-open {
   position: absolute;
-  margin-left: 500px;
+  margin-top: 95px;
+  margin-left: 900px;
   /* margin-top: 50px; */
 }
 
@@ -219,6 +220,10 @@
 
 @media only screen and (max-width: 800px) {
   /* For tablets */
+
+  .fontStyle {
+    font-size: 12px;
+  }
 
   .mainImgContent {
     height:200px;
