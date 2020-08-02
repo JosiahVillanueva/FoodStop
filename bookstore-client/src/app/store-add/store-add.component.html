@@ -1,132 +1,136 @@
-<h3>Add a Store</h3>
+<app-navbar></app-navbar>
 
-<formGroup [formGroup]="fg">
+<div class="container">
+    <h3>Add a Store</h3>
 
-    <div>
-        <label for="pictures">Pictures :</label>
-        <input type="text" 
-            id="pictures" 
-            placeholder="pictures" 
-            formControlName="pictures" 
-            [(ngModel)]="book.pictures">
+    <formGroup [formGroup]="fg">
 
-        <div *ngIf="pictures.invalid && (pictures.dirty || pictures.touched)" class="required">
-            <div *ngIf="pictures.errors.required">
-                <div class="validationRed">Pictures is required.</div>
+        <div>
+            <label for="pictures">Pictures :</label>
+            <input type="text" 
+                id="pictures" 
+                placeholder="pictures" 
+                formControlName="pictures" 
+                [(ngModel)]="book.pictures">
+
+            <div *ngIf="pictures.invalid && (pictures.dirty || pictures.touched)" class="required">
+                <div *ngIf="pictures.errors.required">
+                    <div class="validationRed">Pictures is required.</div>
+                </div>
             </div>
         </div>
-    </div>
-    
-    <div>
-        <label for="title">Title :</label>
-        <input id="title" placeholder="Title"
-            formControlName="title"
-            [(ngModel)]="book.title">
-
-        <div *ngIf="title.invalid && (title.dirty || title.touched)">
-            <div *ngIf="title.errors.required" class="validationRed">
-                Title is required.
-            </div>
-        </div>
-     </div>
-    
-     <div>
-        <label for="description">Description :</label>
-        <input type="text" id="description"
-            placeholder="Description" 
-            formControlName="description" 
-            [(ngModel)]="book.description">
-    </div>
-
-    <div>
-        <label for="rating">Rating :</label>
-        <input type="number" 
-            id="rating" 
-            placeholder="ex. 3.1" 
-            formControlName="rating" 
-            [(ngModel)]="book.rating">
         
-        <div *ngIf="rating.errors?.min">
-            Minimum required number is 0.
-        </div> 
-        <div *ngIf="rating.errors?.max">
-            Maximum number can be 5.
+        <div>
+            <label for="title">Title :</label>
+            <input id="title" placeholder="Title"
+                formControlName="title"
+                [(ngModel)]="book.title">
+
+            <div *ngIf="title.invalid && (title.dirty || title.touched)">
+                <div *ngIf="title.errors.required" class="validationRed">
+                    Title is required.
+                </div>
+            </div>
         </div>
-    </div>
-
-    <div>
-        <label for="tag">Tag :</label>
-        <select id="choseTags" formControlName="choseTags" [(ngModel)]="choseTags" multiple>
-            <option *ngFor="let tag of tags">{{tag.tagName}}</option>
-        </select>
-    </div>
-
-    <div>
-        <label for="contactInformation">Contact Information :</label>
-        <input type="text" 
-            id="contactInformation" 
-            placeholder="contactInformation" 
-            formControlName="contactInformation" 
-            [(ngModel)]="book.contactInformation">
-        <div *ngIf="contactInformation.errors?.pattern">
-            Wrong Contact Info
-        </div>
-    </div>
-
-    <div>
-        <label for="bestSeller">Best  Seller :</label>
-        <input type="text" 
-            id="bestSeller" 
-            placeholder="bestSeller" 
-            formControlName="bestSeller" 
-            [(ngModel)]="book.bestSeller">
-    </div>
-    
-    <div>
-        <label for="openingHours">Opening Hours :</label>
-
-        <div *ngFor="let storeDay of storeDays">
-            Monday ({{storeDay}}): 
-            <input type="text" [(ngModel)]="days[storeDay].day" formControlName="day" ng-init="days[storeDay].day='Bob'" value="Bob">
-            <input type="time" [(ngModel)]="days[storeDay].open" formControlName="openingHours">
-            <input type="time" [(ngModel)]="days[storeDay].close" formControlName="closingHours">
+        
+        <div>
+            <label for="description">Description :</label>
+            <input type="text" id="description"
+                placeholder="Description" 
+                formControlName="description" 
+                [(ngModel)]="book.description">
         </div>
 
-    </div>
+        <div>
+            <label for="rating">Rating :</label>
+            <input type="number" 
+                id="rating" 
+                placeholder="ex. 3.1" 
+                formControlName="rating" 
+                [(ngModel)]="book.rating">
+            
+            <div *ngIf="rating.errors?.min">
+                Minimum required number is 0.
+            </div> 
+            <div *ngIf="rating.errors?.max">
+                Maximum number can be 5.
+            </div>
+        </div>
 
-    <div>
-        <label for="location">location :</label>
-        <input type="text" 
-            id="location" 
-            placeholder="location" 
-            formControlName="location" 
-            [(ngModel)]="book.location">
-    </div>
-    
-    <!-- 
-        Price range na lang kaya ito? tapos inner join ko na lang silang dalawa? 
-        So bale dalawang field sya ng min and max price then mag kaka validation ako na max should be
-        lower than min
-    -->
-    <div>
-        <label for="price">price :</label>
-        <input type="text" 
-            id="price" 
-            placeholder="price" 
-            formControlName="price" 
-            [(ngModel)]="book.price">
-    </div>
+        <div>
+            <label for="tag">Tag :</label>
+            <select id="choseTags" formControlName="choseTags" [(ngModel)]="choseTags" multiple>
+                <option *ngFor="let tag of tags">{{tag.tagName}}</option>
+            </select>
+        </div>
 
-    <div>
-        <label for="trending">trending :</label>
-        <select id="trending" formControlName="trending" [(ngModel)]="book.trending">
-            <option>0</option>
-            <option>1</option>
-        </select>
-    </div>
+        <div>
+            <label for="contactInformation">Contact Information :</label>
+            <input type="text" 
+                id="contactInformation" 
+                placeholder="contactInformation" 
+                formControlName="contactInformation" 
+                [(ngModel)]="book.contactInformation">
+            <div *ngIf="contactInformation.errors?.pattern">
+                Wrong Contact Info
+            </div>
+        </div>
 
-    <p>
-        <button type=”button” (click)="submitBook()">Submit</button>
-    </p>
+        <div>
+            <label for="bestSeller">Best  Seller :</label>
+            <input type="text" 
+                id="bestSeller" 
+                placeholder="bestSeller" 
+                formControlName="bestSeller" 
+                [(ngModel)]="book.bestSeller">
+        </div>
+        
+        <div>
+            <label for="openingHours">Opening Hours :</label>
 
-</formGroup>
+            <div *ngFor="let storeDay of storeDays">
+                Monday ({{storeDay}}): 
+                <input type="text" [(ngModel)]="days[storeDay].day" formControlName="day" ng-init="days[storeDay].day='Bob'" value="Bob">
+                <input type="time" [(ngModel)]="days[storeDay].open" formControlName="openingHours">
+                <input type="time" [(ngModel)]="days[storeDay].close" formControlName="closingHours">
+            </div>
+
+        </div>
+
+        <div>
+            <label for="location">location :</label>
+            <input type="text" 
+                id="location" 
+                placeholder="location" 
+                formControlName="location" 
+                [(ngModel)]="book.location">
+        </div>
+        
+        <!-- 
+            Price range na lang kaya ito? tapos inner join ko na lang silang dalawa? 
+            So bale dalawang field sya ng min and max price then mag kaka validation ako na max should be
+            lower than min
+        -->
+        <div>
+            <label for="price">price :</label>
+            <input type="text" 
+                id="price" 
+                placeholder="price" 
+                formControlName="price" 
+                [(ngModel)]="book.price">
+        </div>
+
+        <div>
+            <label for="trending">trending :</label>
+            <select id="trending" formControlName="trending" [(ngModel)]="book.trending">
+                <option>0</option>
+                <option>1</option>
+            </select>
+        </div>
+
+        <p>
+            <button type=”button” (click)="submitBook()">Submit</button>
+        </p>
+
+    </formGroup>
+</div>
