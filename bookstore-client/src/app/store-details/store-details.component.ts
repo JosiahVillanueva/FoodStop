@@ -39,14 +39,5 @@ export class StoreDetailsComponent implements OnInit {
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: 'edupala.com © Angular LeafLet',
     }).addTo(this.map);
-  
-    //not working properly, problem was ginagamit demo server
-    await L.Routing.control({
-      waypoints: [
-        L.latLng(14.343056, 121.069200),
-        L.latLng([14.388817, 121.045406])
-      ],
-      routeWhileDragging: true
-    }).addTo(this.map);
   }
 }
