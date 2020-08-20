@@ -76,19 +76,7 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  //adding async sa function is di nasasave ng maayos... dunno why pero currently working sya ng walang async
-  addStoreTag(storetag: StoreTag) {
-    const url = 'http://localhost:3000/api/stores/post/storeTag';
-
-    return this.http.post(url, storetag, {observe : 'response'})
-    .pipe(
-      map((data: any) => {
-        return data;
-      }), catchError( error => {
-        return throwError( 'Something went wrong!' );
-      })
-    );
-  }
+  
 
   async getStoreTag(title: String) {
     const url = 'http://localhost:3000/api/stores/get/storeTag/' + title;
@@ -142,5 +130,11 @@ export class ApiService {
     const url = "http://localhost:3000/api/stores/post/storeOpenningHours";
 
     return this.http.post(url, storeOpenningHours);
+  }
+
+  async addStoreTag(storetag: StoreTag[]) {
+    const url = 'http://localhost:3000/api/stores/post/storeTag';
+
+    return this.http.post(url, storetag);
   }
 }

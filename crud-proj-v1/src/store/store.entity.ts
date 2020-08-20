@@ -1,5 +1,6 @@
 import { Entity, Column, PrimaryGeneratedColumn, OneToMany } from 'typeorm';
 import { StoreOpenningHoursEntity } from './storeOpenningHours.entity';
+import { StoreTagEntity } from './storeTag.entity';
 
 @Entity('store')
 export class StoreEntity {
@@ -35,4 +36,7 @@ export class StoreEntity {
 
     @OneToMany(() => StoreOpenningHoursEntity, storeOpenningHoursEntity => storeOpenningHoursEntity.storeEntity)
     openingHours: StoreOpenningHoursEntity[];
+
+    @OneToMany(() => StoreTagEntity, storeTagEntity => storeTagEntity.storeEntity)
+    tags: StoreTagEntity[];
 }

@@ -1,13 +1,14 @@
-import { Entity, Column, PrimaryGeneratedColumn } from 'typeorm';
+import { Entity, Column, PrimaryGeneratedColumn, ManyToOne } from 'typeorm';
+import { StoreEntity } from './store.entity';
 
 @Entity('storetag')
 export class StoreTagEntity {
     @PrimaryGeneratedColumn()
-    id: number;
-
-    @Column() 
-    storeId:string;
+    storeTagId: number;
 
     @Column()
     tag:string;
+
+    @ManyToOne(type => StoreEntity, storeEntity=>storeEntity.tags)
+    storeEntity: StoreEntity
 }

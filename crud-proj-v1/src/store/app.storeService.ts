@@ -35,7 +35,7 @@ export class StoreService {
     //   console.log("FAILED TO ADD store, HAS DUPLICATE");
     // } else {
 
-    this.a = storeEntity;
+      this.a = storeEntity;
 
       return await this.storeRepository.save(storeEntity);
     // }
@@ -56,7 +56,17 @@ export class StoreService {
   }
 
   async addStoreTag(storeTagEntity: StoreTagEntity): Promise<StoreTagEntity> {
-    return await this.storeTagRepository.save(storeTagEntity);
+    var storeTag:any = [];
+
+    for(var a=0; a < storeTagEntity.tag.length; a++) {
+      var data = {
+        "tag": storeTagEntity.tag[a],
+        "storeEntity": this.a
+      }
+      storeTag.push(data);
+    }
+
+    return await this.storeTagRepository.save(storeTag);
   }
 
   async getStoreTag(id: string): Promise<StoreTagEntity[]> {

@@ -68,26 +68,13 @@ export class StoreAddComponent implements OnInit {
 
   async submitBook() {
     if (this.fg.valid) {
-      (await this.apiService.addBook(this.book)).subscribe(async res => {
-        this.choseTags.forEach(element => {
-          this.storeTag.storeId = res.body.id;
-          this.storeTag.tag = element;
-
-          this.apiService.addStoreTag(this.storeTag).subscribe();
-          console.log("Store Added")
-        });
-      }
-      ,
-      err=>{
-        console.log("On Add Status Code Error"+err.status);
-      });
-
-
-      this.storeOpenningHours = this.days.filter(a => a.open!=undefined && a.close!=undefined)
-
-      console.log(this.days);
-
+      (await this.apiService.addBook(this.book)).subscribe();
+      this.storeOpenningHours = this.days.filter((a: { open: any; close: any; }) => a.open!=undefined && a.close!=undefined);
       (await this.apiService.addOpenningHours(this.storeOpenningHours)).subscribe();
+
+      //tags
+      console.log("chose tag: " + JSON.stringify(this.choseTags));
+      (await this.apiService.addStoreTag(this.choseTags)).subscribe();
 
       this.router.navigate(['dashboard']);
     } else {

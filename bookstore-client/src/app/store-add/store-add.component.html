@@ -59,7 +59,7 @@
 
         <div>
             <label for="tag">Tag :</label>
-            <select id="choseTags" formControlName="choseTags" [(ngModel)]="choseTags" multiple>
+            <select id="choseTags" formControlName="choseTags" [(ngModel)]="choseTags.tag" multiple>
                 <option *ngFor="let tag of tags">{{tag.tagName}}</option>
             </select>
         </div>
