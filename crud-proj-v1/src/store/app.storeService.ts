@@ -71,7 +71,7 @@ export class StoreService {
 
   async getStoreTag(id: string): Promise<StoreTagEntity[]> {
     return await this.storeTagRepository.find({
-      where: [{ "storeId": id }]
+      where: [{ "storeEntity": id }]
     });
   }
 
@@ -81,6 +81,12 @@ export class StoreService {
     }
     
     return await this.storeOpenningHoursRepository.save(storeOpenningHours);
+  }
+
+  async getStoreOpenningHours(id: string): Promise<StoreOpenningHoursEntity[]> {
+    return await this.storeOpenningHoursRepository.find({
+      where: [{"storeEntity": id}]
+    });
   }
 
   public async duplicate(value: string): Promise<boolean> {

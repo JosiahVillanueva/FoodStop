@@ -55,4 +55,9 @@ export class StoreController{
   async addStoreOpenningHours(@Body() bDto: StoreOpenningHoursEntity): Promise<StoreOpenningHoursEntity> {
     return await this.appService.addStoreOpenningHours(bDto);
   }
+
+  @Get('get/storeOpenningHours/:id')
+  async getStoreOpenningHours(@Param('id') id: string){
+    return await this.appService.getStoreOpenningHours(id);
+  }
 }

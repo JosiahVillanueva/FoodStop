@@ -76,8 +76,6 @@ export class ApiService {
     return this.http.get(url);
   }
 
-  
-
   async getStoreTag(title: String) {
     const url = 'http://localhost:3000/api/stores/get/storeTag/' + title;
 
@@ -130,6 +128,12 @@ export class ApiService {
     const url = "http://localhost:3000/api/stores/post/storeOpenningHours";
 
     return this.http.post(url, storeOpenningHours);
+  }
+
+  async getOpenningHours(id: String) {
+    const url = "http://localhost:3000/api/stores/get/storeOpenningHours/" + id;
+
+    return this.http.get(url);
   }
 
   async addStoreTag(storetag: StoreTag[]) {

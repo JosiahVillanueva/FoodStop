@@ -32,7 +32,11 @@
       <td>{{book.contactInformation}}</td>
       <td>{{book.price}} PHP</td>
       <td>{{book.bestSeller}}</td>
-      <td>{{book.openingHours}}</td>
+      <div *ngFor="let openningHour of openningHours">
+        <td>
+          {{openningHour.open}} AM - {{openningHour.close}} PM
+        </td>
+      </div>
       <td>{{book.trending}}</td>
     </tr>
   </table>

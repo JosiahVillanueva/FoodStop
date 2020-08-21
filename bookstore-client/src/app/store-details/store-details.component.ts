@@ -12,6 +12,7 @@ import { antPath } from 'leaflet-ant-path';
 export class StoreDetailsComponent implements OnInit {
   books: Object;
   storeTags: Object;
+  openningHours: Object;
   id: String;
   map: L.map;
 
@@ -25,13 +26,9 @@ export class StoreDetailsComponent implements OnInit {
   async getBook(){
     this.id = this.activetedRoute.snapshot.paramMap.get('id');
 
-    (await this.apiService.getBook(this.id)).subscribe(response => {
-      this.books = response; 
-    });
-
-    (await this.apiService.getStoreTag(this.id)).subscribe(response => {
-      this.storeTags = response;
-    }); 
+    (await this.apiService.getBook(this.id)).subscribe(response => {this.books = response;});
+    (await this.apiService.getStoreTag(this.id)).subscribe(response => {this.storeTags = response;});
+    (await this.apiService.getOpenningHours(this.id)).subscribe(response => {this.openningHours = response;});
   }
 
   async generateMap(){
