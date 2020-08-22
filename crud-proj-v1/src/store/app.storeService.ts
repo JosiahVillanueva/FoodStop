@@ -58,14 +58,17 @@ export class StoreService {
   async addStoreTag(storeTagEntity: StoreTagEntity): Promise<StoreTagEntity> {
     var storeTag:any = [];
 
-    for(var a=0; a < storeTagEntity.tag.length; a++) {
-      var data = {
-        "tag": storeTagEntity.tag[a],
-        "storeEntity": this.a
+    if(storeTagEntity.tag === undefined || storeTagEntity.tag === null){
+      //some code here??
+    }else {
+      for(var a=0; a < storeTagEntity.tag.length; a++) {
+        var data = {
+          "tag": storeTagEntity.tag[a],
+          "storeEntity": this.a
+        }
+        storeTag.push(data);
       }
-      storeTag.push(data);
-    }
-
+  }
     return await this.storeTagRepository.save(storeTag);
   }
 
