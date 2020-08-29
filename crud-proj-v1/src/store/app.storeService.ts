@@ -5,17 +5,20 @@ import { Repository } from 'typeorm';
 import { StoreEntity } from './store.entity'
 import { StoreTagEntity } from './storeTag.entity'
 import { StoreOpenningHoursEntity } from './storeOpenningHours.entity';
+import { StoreLocationEntity } from './storeLocation.entity';
 
 // Node JS > Nest JS (Swagger UI)
 
 @Injectable()
 export class StoreService {
   a: StoreEntity;
+  b: StoreLocationEntity;
 
   constructor(
     @InjectRepository(StoreEntity) private storeRepository: Repository<StoreEntity>, 
     @InjectRepository(StoreTagEntity) private storeTagRepository: Repository<StoreTagEntity>,
     @InjectRepository(StoreOpenningHoursEntity) private storeOpenningHoursRepository: Repository<StoreOpenningHoursEntity>,
+    @InjectRepository(StoreLocationEntity) private storeLocationRepository: Repository<StoreLocationEntity>,
   ){}
 
   async getStores(): Promise<StoreEntity[]> {
@@ -36,6 +39,7 @@ export class StoreService {
     // } else {
 
       this.a = storeEntity;
+      storeEntity.location = this.b;
 
       return await this.storeRepository.save(storeEntity);
     // }
@@ -92,10 +96,16 @@ export class StoreService {
     });
   }
 
+  async addStoreLocation(storeLocation: StoreLocationEntity): Promise<StoreLocationEntity> {
+    this.b = storeLocation;
+
+    return await this.storeLocationRepository.save(storeLocation);
+  }
+
   public async duplicate(value: string): Promise<boolean> {
     const result = await this.storeRepository.find({
       where: [{ "title": value }]
-    });
+    }); 
 
     return result.length >= 1;
   }

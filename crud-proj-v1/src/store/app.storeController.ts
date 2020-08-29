@@ -3,6 +3,7 @@ import { StoreService } from './app.storeService';
 import { StoreEntity } from './store.entity'
 import { StoreTagEntity } from './storeTag.entity'
 import { StoreOpenningHoursEntity } from './storeOpenningHours.entity';
+import { StoreLocationEntity } from './storeLocation.entity';
 
 @Controller('stores')
 export class StoreController{
@@ -59,5 +60,11 @@ export class StoreController{
   @Get('get/storeOpenningHours/:id')
   async getStoreOpenningHours(@Param('id') id: string){
     return await this.appService.getStoreOpenningHours(id);
+  }
+
+  // Location
+  @Post('post/storeLocation')
+  async addStoreLocation(@Body() bDto: StoreLocationEntity): Promise<StoreLocationEntity> {
+    return await this.appService.addStoreLocation(bDto);
   }
 }

@@ -5,6 +5,14 @@
 
     <formGroup [formGroup]="fg">
 
+        <input
+            style="display: none"
+            type="file" 
+            multiple="" 
+            (change)="onFileChanged($event)"
+            #fileInput>
+        <button (click)="fileInput.click()">Select File</button>
+
         <div>
             <label for="pictures">Pictures :</label>
             <input type="text" 
@@ -90,7 +98,7 @@
 
             <div *ngFor="let storeDay of storeDays">
                 Monday ({{storeDay}}): 
-                <input type="text" [(ngModel)]="days[storeDay].day" formControlName="day" ng-init="days[storeDay].day='Bob'" value="Bob">
+                <input type="number" [(ngModel)]="days[storeDay].day" formControlName="day" value="{{storeDay}}">
                 <input type="time" [(ngModel)]="days[storeDay].open" formControlName="openingHours">
                 <input type="time" [(ngModel)]="days[storeDay].close" formControlName="closingHours">
             </div>
@@ -98,12 +106,26 @@
         </div>
 
         <div>
-            <label for="location">location :</label>
+            <label for="location">Address :</label>
             <input type="text" 
-                id="location" 
-                placeholder="location" 
-                formControlName="location" 
-                [(ngModel)]="book.location">
+                id="address" 
+                placeholder="Address" 
+                formControlName="address" 
+                [(ngModel)]="location.address">
+
+            <label for="location">City :</label>
+            <input type="text" 
+                id="city" 
+                placeholder="City" 
+                formControlName="city" 
+                [(ngModel)]="location.city">
+
+            <label for="location">Zip Code :</label>
+            <input type="text" 
+                id="zipCode" 
+                placeholder="ZIP Code" 
+                formControlName="zipCode" 
+                [(ngModel)]="location.zipCode">
         </div>
         
         <!-- 

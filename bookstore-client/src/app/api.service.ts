@@ -7,6 +7,7 @@ import { User } from './user';
 import { throwError } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
 import { StoreOpenningHours } from './storeOpenningHours';
+import { StoreLocation } from './storeLocation';
 
 @Injectable({
   providedIn: 'root'
@@ -140,5 +141,11 @@ export class ApiService {
     const url = 'http://localhost:3000/api/stores/post/storeTag';
 
     return this.http.post(url, storetag);
+  }
+
+  async addStoreLocation(storeLocation: StoreLocation) {
+    const url =   'http://localhost:3000/api/stores/post/storeLocation';
+
+    return this.http.post(url, storeLocation);
   }
 }

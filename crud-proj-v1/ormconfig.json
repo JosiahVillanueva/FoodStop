@@ -6,5 +6,5 @@
   "password": "",
   "database": "bookstore",
   "entities":["dist/**/*.entity.js"],
-  "synchronize": true
+  "synchronize": false
 }
